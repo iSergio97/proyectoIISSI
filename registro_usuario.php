@@ -28,9 +28,20 @@ if (!isset($_SESSION['formulario'])) {
 	<head>
 		<meta charset="utf-8">
 		<title>Sweet Modas: Registro</title>
+		<link rel="stylesheet" href="css/tienda.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+  		<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
 	</head>
 
 	<body>
+		
+		<script>
+			$(document).ready(function(){
+				$("#pass").on("keyup",function(){
+					passwordColor();
+				});
+			});
+		</script>
 
 		<?php
 			// Mostrar los erroes de validación (Si los hay)
