@@ -2,7 +2,7 @@
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Sweet Modas: Página principal</title>
+    <title>Sweet Modas: Login correcto</title>
   </head>
   <body><?php
     if(consul($conexion, $nuevoUsuario)) {

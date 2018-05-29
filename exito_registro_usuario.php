@@ -36,7 +36,8 @@ $conexion = crearConexionBD();
 		Pulsa <a href="pagina_prueba.php">aquí</a> para acceder a la página principal.
 	</div>
   <?php	} else {
-    Header("Location: registro_usuario.php");
+    //Añadir enlace para volver al inicio
+		echo "Errorrrrrrrrrr";
 	}
   ?>
 </main>

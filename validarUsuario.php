@@ -17,6 +17,9 @@ if (isset($_SESSION["formulario"])) {
 	Header("Location: registro_usuario.php");
 }
 
+
+
+
 $errores = validarDatosUsuario($nuevoUsuario);
 
 if (count($errores) > 0) {

@@ -1,8 +1,8 @@
 <?php
 	session_start();
-
+    
     if (isset($_SESSION['login']))
         unset($_SESSION['login']);
-
-    header("Location: registro_usuario.php");
+    
+    header("Location: pagina_prueba.php");
 ?>

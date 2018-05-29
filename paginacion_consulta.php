@@ -38,5 +38,4 @@ function total_consulta( $conn, $query )
 		header("Location: falloConexion.php");
 	}
 } 
-
 ?>

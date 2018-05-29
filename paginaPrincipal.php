@@ -3,7 +3,6 @@ Falta añadir código PHP para mantener la conexión ($_SESSION)
 -->
 <?php
 session_start();
-
 require_once("gestionBD.php");
 require_once("paginacion_consulta.php");
  ?>
