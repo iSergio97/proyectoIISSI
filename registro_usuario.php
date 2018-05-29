@@ -28,11 +28,21 @@ if (!isset($_SESSION['formulario'])) {
 	<head>
 		<meta charset="utf-8">
 		<title>Sweet Modas: Registro</title>
-		<link rel="stylesheet" href="css/registro.css">
+		<link rel="stylesheet" href="css/tienda.css">
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+  		<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
 	</head>
 
 	<body>
-
+		
+		<script>
+			$(document).ready(function(){
+				$("#pass").on("keyup",function(){
+					passwordColor();
+				});
+			});
+		</script>
+		
 		<?php
 			// Mostrar los erroes de validación (Si los hay)
 			if (isset($errores) && count($errores)>0) {
@@ -139,17 +149,17 @@ if (!isset($_SESSION['formulario'])) {
 	</div>
 
 	<!--	<p> Pulse <a href="login.php">aquí </a> para acceder a la página de Login si ya está registrado</p> -->
-<br>
+<!-- <br>
 <div id="login">
 	<form action="login.php" method="post">
 
 		<div><label for="user_name"> Nombre de Usuario: </label>
 			<input type="text" name="user_name" id="user_name" /> </div>
 			<div> <label for="pass"> Contraseña: </label>
-			<input type="password" name="pass" id="pass"></div>
+			<input type="password" name="pass" id="pass" ></div>
 			<input type="submit" name="Enviar" value="Enviar" />
 		</form>
-</div>
+</div> -->
 	<div id="footer">
 		<footer>
 		<img src="images/Logo.jpeg" alt="Sweet Modas" width="10%" height="10%">
