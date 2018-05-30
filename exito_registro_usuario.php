@@ -33,11 +33,10 @@ $conexion = crearConexionBD();
   <h3>Hola <?php echo $nuevoUsuario["user_name"]; ?>,
   gracias por registrarte</h3>
 	<div>
-		Pulsa <a href="pagina_prueba.php">aquí</a> para acceder a la página principal.
+		Pulsa <a href="paginaPrincipal.php">aquí</a> para acceder a la página principal.
 	</div>
   <?php	} else {
-    //Añadir enlace para volver al inicio
-		echo "Errorrrrrrrrrr";
+    Header("Location: registro_usuario.php");
 	}
   ?>
 </main>

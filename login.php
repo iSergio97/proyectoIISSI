@@ -4,63 +4,47 @@ session_start();
 include_once("gestionBD.php");
 include_once("gestionUsuarios.php");
 
-if(isset($_POST['Enviar'])){
+if (isset($_POST['submit'])){
+	$user_name= $_POST['user_name'];
 	$pass = $_POST['pass'];
-	$user_name = $_POST['user_name'];
 
 	$conexion = crearConexionBD();
-	$num_users_un = consultarDatosUsuario($conexion, $user_name, $pass);
-	cerrarConexionBD();
+	$num_usuarios = consultarDatosUsuario($conexion,$user_name,$pass);
+	cerrarConexionBD($conexion);
 
-	if ($num_users_email == 0) {
+	if ($num_usuarios == 0) {
 		$login = "error";
+		echo "El usuario y/o la contraseña no coinciden";
 	} else {
-		$_SESSION['login'] = $user_name;
-		Header("Location: pagina_prueba2.php");
+		$_SESSION['login'] = $login;
+		Header("Location: paginaPrincipal.php");
 	}
 }
-
-// if($num_users_un == 0 && $num_users_email == 0) {
-// 	$login = 'error';
-// } else {
-// 	if($num_users_un == 0) {
-// 		$_SESSION['login'] = $email;
-// 		Header("Location: pagina_prueba2.php");
-// 	} else {
-// 		$_SESSION['login'] = $user_name;
-// 		Header("Location: pagina_prueba2.php");
-// 	}
-// }
  ?>
 
-
- <!DOCTYPE html>
- <html lang="es" dir="ltr">
- 	<head>
- 		<meta charset="utf-8">
- 		<title>Sweet Modas: Login</title>
- 	</head>
- 	<body>
-		<main>
-			<?php if (isset($login)) {
-				echo "<div class=\"error\">";
-				echo "Error en la contraseña o no existe el usuario.";
-				echo "</div>";
-			}
-			?>
-
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="login">
 			<form action="login.php" method="post">
-				<div><label for="email"> Email o nombre de usuario: </label>
-					<input type="text/email" name="email_username" id="email" /> </div>
+
+				<div><label for="user_name"> Nombre de Usuario: </label>
+					<input type="text" name="user_name" id="user_name" /> </div>
 					<div> <label for="pass"> Contraseña: </label>
 					<input type="password" name="pass" id="pass"></div>
-					<input type="submit" name="Enviar" value="Enviar" />
+					<input type="submit" name="submit" value="submit" />
 				</form>
-
-				<br>
-				<p>¿No estás registrado? <a href="registro_usuario.php">¡Registrate!</a></p>
-			</main>
-
- 	</body>
-
- </html>
+		</div>
+			<div id="footer">
+				<footer>
+				<img src="images/Logo.jpeg" alt="Sweet Modas" width="10%" height="10%">
+				<br/>
+				&copy; Grupo IISSI 2018
+				</footer>
+			</div>
+	</body>
+</html>

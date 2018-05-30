@@ -1,10 +1,14 @@
-<!--
-Falta añadir código PHP para mantener la conexión ($_SESSION)
--->
 <?php
 session_start();
-require_once("gestionBD.php");
-require_once("paginacion_consulta.php");
+
+//Importamos las librerías para escribir en la BD
+require_once ("gestionBD.php");
+require_once ("gestionUsuarios.php");
+
+if (isset($_SESSION['usuario'])) {
+	$usuario = $_SESSION['usuario'];
+}
+$conexion = crearConexionBD();
  ?>
 
 <!DOCTYPE html>

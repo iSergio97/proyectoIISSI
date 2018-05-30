@@ -1,5 +1,3 @@
-/*para poder mostrar los vinculos en la parte responsive */
-
 function myToggleMenu() {
 
     var x = document.getElementById("myTopnav");

@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['formulario'])) {
 	$formulario['nif'] = "";
 	$formulario['nombre'] = "";
@@ -13,12 +12,9 @@ if (!isset($_SESSION['formulario'])) {
 	$formulario['direccion'] = "";
 	$formulario['nombreUsuario'] = "";
 	$formulario['pass'] = "";
-
 	$_SESSION['formulario'] = $formulario;
-
 } else
 	$formulario = $_SESSION['formulario'];
-
 	if (isset($_SESSION["errores"]))
 		$errores = $_SESSION["errores"];
 ?>
@@ -30,14 +26,17 @@ if (!isset($_SESSION['formulario'])) {
 		<title>Sweet Modas: Registro</title>
 		<link rel="stylesheet" href="css/tienda.css">
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
-  		<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
+  	<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
+
+		</script>
 	</head>
 
 	<body>
-		
+
 		<script>
-			$(document).ready(function(){
-				$("#pass").on("keyup",function(){
+
+			$(document).ready(function() {
+				$("#pass").on('keyup', function() {
 					passwordColor();
 				});
 			});
@@ -57,8 +56,8 @@ if (!isset($_SESSION['formulario'])) {
 		<h1>Sweet Modas</h1>
 		<h2>Registro de usuarios</h2>
 		</header>
-
-		<form id="registroUsuario" method="get" action="validarUsuario.php">
+<div id="registroUsuario">
+		<form  method="get" action="validarUsuario.php">
 		<p><i>Debe rellenar todos los campos para completar el registro</i></p>
 		<fieldset class="datos_personales">
 		<legend>
@@ -80,9 +79,9 @@ if (!isset($_SESSION['formulario'])) {
 
 		<div>
 		<label for="dni">
-		DNI
+		DNI (Si no recuerda la letra, haga click <a href="calcularLetraDNI.php" target="_blank">aquí</a>).
 		</label>
-		<input id="dni" name="dni" type="text"  pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))" value="<?php echo $formulario['dni']; ?>"/>
+		<input id="dni" name="dni" type="text"  pattern="(([X-Z]{1})([-]?)(\d{7})([-]?)([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))" value="<?php echo $formulario['dni']; ?>" onclick="calcletra("#dni")"/>
 		</div>
 
 		<div>
@@ -146,11 +145,16 @@ if (!isset($_SESSION['formulario'])) {
 		<div><input type="submit" value="Enviar" /></div>
 
 		</form>
+	</div>
 
+	<p> Pulse <a href="login.php">aquí </a> para acceder a la página de Login si ya está registrado</p>
+
+	<div id="footer">
 		<footer>
 		<img src="images/Logo.jpeg" alt="Sweet Modas" width="10%" height="10%">
 		<br/>
 		&copy; Grupo IISSI 2018
 		</footer>
+		<div>
 	</body>
 </html>

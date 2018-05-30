@@ -1,6 +1,6 @@
 /* Mensajes de Error */
 div.error, div.excepcion {
-	color: red;	
+	color: red;
 	border: 2px solid red;
 	padding: 10px;
 	margin: 10px;
@@ -14,8 +14,8 @@ body{
 /* Ejercicio 2 */
 
 header{
-	display:block; 
-	color: green; 
+	display:block;
+	color: green;
 	border-bottom:5px solid brown;
 }
 
@@ -32,8 +32,8 @@ footer{
 
 header h1  {
 
-	display: inline;  
-	font-variant: small-caps;  
+	display: inline;
+	font-variant: small-caps;
 	color: brown;
 }
 
@@ -43,7 +43,7 @@ header h1  {
 
 header h2  {
 	font-weight: lighter;
-	font-style: italic;	
+	font-style: italic;
 }
 
 
@@ -56,11 +56,11 @@ header h2  {
 
 .datos_libro{
 	float: left; /* Los datos del libro siempre aparecer�n ajustados a la izquierda */
-	width: 75%;  
+	width: 75%;
 }
 
 #botones_fila {
-	float:right; 
+	float:right;
 	width: 25%;
 }
 
@@ -76,7 +76,7 @@ header h2  {
 
 .titulo{
 	font-size: 1.17em;
-	font-variant: small-caps; /* Letras versales */	
+	font-variant: small-caps; /* Letras versales */
 }
 
 

@@ -3,9 +3,9 @@
 	function validateForm() {
 		// Comprobar que la longitud de la contraseña es >=8, que contiene letras mayúsculas y minúsculas y números
 		var error1 = passwordValidation();
-        
+
 		var error2 = passwordConfirmation();
-        
+
 		return (error1.length==0) && (error2.length==0);
 	}
 
@@ -17,13 +17,13 @@
 
 		// Comprobamos la longitud de la contraseña
 		valid = valid && (pwd.length>=8);
-		
+
 		// Comprobamos si contiene letras mayúsculas, minúsculas y números
 		var hasNumber = /\d/;
 		var hasUpperCases = /[A-Z]/;
 		var hasLowerCases = /[a-z]/;
 		valid = valid && (hasNumber.test(pwd)) && (hasUpperCases.test(pwd)) && (hasLowerCases.test(pwd));
-		
+
 		// Si no cumple las restricciones, devolvemos un error
 		if(!valid){
 			var error = "Please enter a valid password! Length >= 8, (upper and lower case) letters and digits";
@@ -33,7 +33,7 @@
 	        password.setCustomValidity(error);
 		return error;
 	}
-	
+
 	// EJERCICIO 3.2: Campos de contraseña y confirmación de contraseña iguales
 	function passwordConfirmation(){
 		// Obtenemos el campo de password y su valor
@@ -75,12 +75,12 @@
 		// y la longitud de la contraseña
     		return Object.keys(letters).length / length;
 	}
-	
+
 	// EJERCICIO 4: Coloreado del campo de contraseña según su fortaleza
 	function passwordColor(){
 		var passField = document.getElementById("pass");
 		var strength = passwordStrength(passField.value);
-		
+
 		if(!isNaN(strength)){
 			var type = "weakpass";
 			if(passwordValidation()!=""){
@@ -94,7 +94,6 @@
 			type = "nanpass";
 		}
 		passField.className = type;
-		
+
 		return type;
-	}
-	
+}

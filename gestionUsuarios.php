@@ -34,6 +34,4 @@ function consultarDatosUsuario($conexion, $user_name, $pass) {
 	$stmt -> execute();
 	return $stmt -> fetchColumn();
 }
-
-
 ?>
