@@ -26,7 +26,7 @@ if ($pag_tam < 1) $pag_tam = 5;
 
 $conexion = crearConexionBD();
 
-$query= 'SELECT NOMBRE, TALLA, PRECIO FROM ARTICULOS';
+$query= 'SELECT NOMBRE, TALLA, PRECIO, TAGS FROM ARTICULOS';
 
 $total_registros = total_consulta( $conexion, $query );
 $total_paginas=(int) $total_registros / $pag_tam;
@@ -87,15 +87,27 @@ cerrarConexionBD($conexion);
 	<div class="fila_articulo">
 		<div class="datos_articulo">
 			<input type="hidden" name="ID_ARTICULO" value="<?php echo $fila["ID_ARTICULO"]; ?>">
-			<input type="hidden" name="ID_ARTICULO" value="<?php echo $fila["ID_ARTICULO"]; ?>">
-			<input type="hidden" name="ID_ARTICULO" value="<?php echo $fila["ID_ARTICULO"]; ?>">
-			<input type="hidden" name="ID_ARTICULO" value="<?php echo $fila["ID_ARTICULO"]; ?>">
-			<input type="hidden" name="ID_ARTICULO" value="<?php echo $fila["ID_ARTICULO"]; ?>">
-			<input type="hidden" name="ID_ARTICULO" value="<?php echo $fila["ID_ARTICULO"]; ?>">
-			<input type="hidden" name="ID_ARTICULO" value="<?php echo $fila["ID_ARTICULO"]; ?>">
-			<input type="hidden" name="ID_ARTICULO" value="<?php echo $fila["ID_ARTICULO"]; ?>">
-			<input type="hidden" name="ID_ARTICULO" value="<?php echo $fila["ID_ARTICULO"]; ?>">
+			<input type="hidden" name="NOMBRE" value="<?php echo $fila["NOMBRE"]; ?>">
+			<input type="hidden" name="TALLA" value="<?php echo $fila["TALLA"]; ?>">
+			<input type="hidden" name="TIPOARTICULO" value="<?php echo $fila["TIPOARTICULO"]; ?>">
+			<input type="hidden" name="PRECIO" value="<?php echo $fila["PRECIO"]; ?>">
+			<input type="hidden" name="SECCION" value="<?php echo $fila["SECCION"]; ?>">
+			<input type="hidden" name="COLOR" value="<?php echo $fila["COLOR"]; ?>">
+			<input type="hidden" name="TAGS" value="<?php echo $fila["TAGS"]; ?>">
+			<input type="hidden" name="TEMPORADA" value="<?php echo $fila["TEMPORADA"]; ?>">
 
+<?php
+if (isset($libro) and ($libro["ID_ARTICULO"] == $fila["ID_ARTICULO"])) {
+	?>
+	<h3><input id="nombre" name="nombre" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/>	</h3>
+	<h4><?php echo $fila["NOMBRE"]." ".$fila["TAGS"]; ?></h4>
+
+<?php}  else { ?>
+	<input id="NombreArticulo" name="NombreArticulo" type="hidden" value="<?php echo "Nombre: ".$fila['NOMBRE']; ?>" />
+	<div class="na"> <b><?php echo $fila['NOMBRE'] ?> </b></div>
+<?php
+}
+?>
 		</div>
 	</div>
 </article>
