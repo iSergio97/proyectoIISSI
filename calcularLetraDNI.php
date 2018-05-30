@@ -11,13 +11,16 @@
 <script>
 $(document).ready(function() {
   $("#compDNI").on('click', function() {
-    letraDNI(compDNI);
+    calcularLetraDNI(compDNI.value);
   });
 });
+
 </script>
 <div id="boton">
 <p>Introduzca su DNI</p>
-<input type="text" name="compDNI" value="Enviar"> <button id="dni" type="button" name="button" >Comprobar</button>
+<form class="" action="calcularLetraDNI.php" method="post">
+<input type="text" name="compDNI"> <button id="compDNI" type="button" name="button" >Comprobar</button>
+</form>
 </div>
   </body>
 </html>

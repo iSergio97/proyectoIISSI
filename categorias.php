@@ -5,9 +5,9 @@ require_once ("gestionBD.php");
 require_once ("gestionUsuarios.php");
 require_once("paginacion_consulta.php");
 
-if (isset($_SESSION["libro"])){
-	$libro = $_SESSION["libro"];
-	unset($_SESSION["libro"]);
+if (isset($_SESSION["articulo"])){
+	$articulo = $_SESSION["articulo"];
+	unset($_SESSION["articulo"]);
 }
 
 if(isset($_SESSION['paginacion'])) {
@@ -61,14 +61,14 @@ cerrarConexionBD($conexion);
 				 echo $pagina;
 			 }else {
 					?>
-				 <a href="consulta_libros.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+				 <a href="categorias.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 				 <?php
 			 }
 			}
 ?>
 </div>
 
-<form method="get" action="consulta_libros.php">
+<form method="get" action="categorias.php">
 	<!-- Formulario que contiene el número y cambio de tamaño de página -->
 	<input type="hidden" name="PAG_NUM"
 	value="<?php echo $pagina_seleccionada; ?>"
@@ -79,39 +79,48 @@ cerrarConexionBD($conexion);
 	<input type="submit" value="Enviar"/>
 </form>
 </nav>
-<?php
-	foreach($filas as $fila) {
+<?php foreach ($filas as $fila) {
+//Nombre talla precio tags
 ?>
 <article class="articulos">
-<form method="post" action="controlador_articulos.php">
-	<div class="fila_articulo">
-		<div class="datos_articulo">
-			<input type="hidden" name="ID_ARTICULO" value="<?php echo $fila["ID_ARTICULO"]; ?>">
-			<input type="hidden" name="NOMBRE" value="<?php echo $fila["NOMBRE"]; ?>">
-			<input type="hidden" name="TALLA" value="<?php echo $fila["TALLA"]; ?>">
-			<input type="hidden" name="TIPOARTICULO" value="<?php echo $fila["TIPOARTICULO"]; ?>">
-			<input type="hidden" name="PRECIO" value="<?php echo $fila["PRECIO"]; ?>">
-			<input type="hidden" name="SECCION" value="<?php echo $fila["SECCION"]; ?>">
-			<input type="hidden" name="COLOR" value="<?php echo $fila["COLOR"]; ?>">
-			<input type="hidden" name="TAGS" value="<?php echo $fila["TAGS"]; ?>">
-			<input type="hidden" name="TEMPORADA" value="<?php echo $fila["TEMPORADA"]; ?>">
+	<form action="controlador_articulos.php" method="post">
+		<div class="fila_articulo">
+			<div class="datos_articulo">
+				<input id="nombreArticulo" type="hidden"
+				 name="nombreArticulo" value="<?php echo $fila['NOMBRE']; ?>"/>
+				 <input id="Talla"type="hidden" name="talla" value="<?php echo $fila['TALLA']; ?>"/>
+				 <input id="precio" type="hidden" name="precio" value="<?php echo $fila['PRECIO']; ?>"/>
+				 <input id="tags" type="hidden" name="tags" value="<?php echo $fila['TAGS']; ?>"/>
 
-<?php
-if (isset($libro) and ($libro["ID_ARTICULO"] == $fila["ID_ARTICULO"])) {
-	?>
-	<h3><input id="nombre" name="nombre" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/>	</h3>
-	<h4><?php echo $fila["NOMBRE"]." ".$fila["TAGS"]; ?></h4>
+				 <?php
 
-<?php}  else { ?>
-	<input id="NombreArticulo" name="NombreArticulo" type="hidden" value="<?php echo "Nombre: ".$fila['NOMBRE']; ?>" />
-	<div class="na"> <b><?php echo $fila['NOMBRE'] ?> </b></div>
+				 if (isset($articulo)) {
+
+				 ?>
+				 <?php
+
+			 } else {?>
+
+				<input id="Articulo" type="hidden" name="Articulo" value="<?php  $fila['NOMBRE']?>"/>
+			<p>	<div class="nombre"><b><?php echo $fila['NOMBRE']; ?>
+					<div class="talla"><b><?php echo $fila['TALLA']; ?>
+					<div class="tags"><b><?php echo $fila['TAGS'];?>
+						<div class="precio"><b><?php echo $fila['PRECIO'];?>
+						</p>
+
+				</div>
+				<?php
+			 }
+				  ?>
+
+			</div>
+		</div>
+
+	</form>
+</article>
 <?php
 }
-?>
-		</div>
-	</div>
-</article>
-		</div>
+ ?>
 	</main>
   </body>
 </html>
