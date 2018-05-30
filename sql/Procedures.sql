@@ -30,6 +30,37 @@ end añadeArticulos;
 /
 
 /*****************************************************************************/
+/* Procedimiento para la creación de artículos     */
+/****************************************************************************/
+
+CREATE OR REPLACE PROCEDURE editaArticulos
+  (idArticulo_A_MOD in Articulos.idArticulo%TYPE,
+   Nombre_A_MOD in Articulos.Nombre%TYPE,
+   Precio_A_MOD in Articulos.Precio%TYPE,
+   TAGS_A_MOD in Articulos.TAGS%TYPE) IS
+BEGIN
+   UPDATE ARTICULOS SET Nombre=Nombre_A_MOD,
+   Precio=Precio_A_MOD, TAGS=TAGS_A_MOD WHERE idArticulo=idArticulo_A_MOD;
+END;
+/
+
+/*****************************************************************************/
+/* Procedimiento para la creación de artículos     */
+/****************************************************************************/
+
+CREATE OR REPLACE PROCEDURE eliminaArticulos
+  (idArticulo_A_QUITAR in Articulos.idArticulo%TYPE) IS
+BEGIN
+   DELETE FROM EstadisticaArticulo WHERE idArticulo=idArticulo_A_QUITAR;
+   DELETE FROM Proporciona WHERE idArticulo=idArticulo_A_QUITAR;
+   DELETE FROM LineasPedido WHERE idArticulo=idArticulo_A_QUITAR;
+   DELETE FROM LineasDevolucion WHERE idArticulo=idArticulo_A_QUITAR;
+   DELETE FROM TieneStockEn WHERE idArticulo=idArticulo_A_QUITAR;
+   DELETE FROM Articulos WHERE idArticulo=idArticulo_A_QUITAR;
+END;
+/
+
+/*****************************************************************************/
 /* Procedimiento para la creación de un pedido-cabecera                        */
 /****************************************************************************/
 
@@ -251,6 +282,35 @@ INSERT INTO EMPLEADOS VALUES (P_OID, P_SUELDO, P_FI, P_FF, P_TIENDA);
 END;
 
 /
+
+/*****************************************************************************/
+/* PROCEDIMIENTO PARA DESPEDIR EMPLEADOS                                     */
+/*****************************************************************************/
+
+CREATE OR REPLACE PROCEDURE DESPIDE_EMPLEADOS(
+OID_Usuario_A_DESPEDIR IN EMPLEADOS.OID_Usuario%TYPE) IS
+BEGIN
+  UPDATE Empleados SET FechaFin=SYSDATE WHERE OID_Usuario=OID_Usuario_A_DESPEDIR;
+  UPDATE Usuarios SET TipoUsuario=0 WHERE OID_Usuario=OID_Usuario_A_DESPEDIR;
+  UPDATE Empleados SET Sueldo=NULL WHERE OID_Usuario=OID_Usuario_A_DESPEDIR;
+END;
+/
+
+/*****************************************************************************/
+/* PROCEDIMIENTO PARA VOLVER A CONTRATAR EMPLEADOS DESPEDIDOS                */
+/*****************************************************************************/
+
+CREATE OR REPLACE PROCEDURE RECONTRATA_EMPLEADOS(
+OID_Usuario_A_RECONTRATAR IN EMPLEADOS.OID_Usuario%TYPE,
+Sueldo_A_RECONTRATAR IN EMPLEADOS:Sueldo%TYPE) IS
+BEGIN
+  UPDATE Empleados SET FechaInicio=SYSDATE WHERE OID_Usuario=OID_Usuario_A_RECONTRATAR;
+  UPDATE Empleados SET FechaFin=NULL WHERE OID_Usuario=OID_Usuario_A_RECONTRATAR;
+  UPDATE Usuarios SET TipoUsuario=1 WHERE OID_Usuario=OID_Usuario_A_RECONTRATAR;
+  UPDATE Empleados SET Sueldo=Sueldo_A_RECONTRATAR WHERE OID_Usuario=OID_Usuario_A_DESPEDIR;
+END;
+/
+
 /*****************************************************************************/
 /* Procedimiento para la inicialización de la base de datos                  */
 /****************************************************************************/
