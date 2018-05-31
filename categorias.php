@@ -5,6 +5,14 @@ require_once ("gestionBD.php");
 require_once ("gestionUsuarios.php");
 require_once("paginacion_consulta.php");
 
+if (isset($_SESSION["login"])) {
+	$usuario = $_SESSION["login"];
+  $user_name = $usuario["user_name"];
+  $_SESSION["errores"] = null;
+	$_SESSION["login"]=null;
+}
+
+
 if (isset($_SESSION["articulo"])){
 	$articulo = $_SESSION["articulo"];
 	unset($_SESSION["articulo"]);

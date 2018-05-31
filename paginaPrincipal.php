@@ -5,8 +5,9 @@ session_start();
 require_once ("gestionBD.php");
 require_once ("gestionUsuarios.php");
 
-if (isset($_SESSION['usuario'])) {
-	$usuario = $_SESSION['usuario'];
+if (isset($_SESSION["login"])) {
+	$user_name = $_SESSION["login"];
+  $_SESSION["errores"] = null;
 }
 $conexion = crearConexionBD();
  ?>

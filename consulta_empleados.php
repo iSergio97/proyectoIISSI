@@ -8,6 +8,8 @@
 	if (isset($_SESSION["empleado"])) {
 		$empleado = $_SESSION["empleado"];
 		unset($_SESSION["empleado"]);
+	} else {
+		Header("Location: categorias.php");
 	}
 
 	// ¿Venimos simplemente de cambiar página o de haber seleccionado un registro ?
@@ -27,12 +29,12 @@
 	$conexion = crearConexionBD();
 
 	// La consulta que ha de paginarse
-	$query = 'SELECT USUARIOS.OID_USUARIO, USUARIOS.DNI, USUARIOS.nombreUsuario, USUARIOS.NOMBRE, USUARIOS.APELLIDOS, ' 
+	$query = 'SELECT USUARIOS.OID_USUARIO, USUARIOS.DNI, USUARIOS.nombreUsuario, USUARIOS.NOMBRE, USUARIOS.APELLIDOS, '
 			. 'USUARIOS.EMAIL, USUARIOS.TELEFONO, USUARIOS.DIRECCION, USUARIOS.CONTRASEÑA, USUARIOS.TipoUsuario, '
 			. 'USUARIOS.FechaNacimiento, EMPLEADOS.SUELDO, EMPLEADOS.FechaInicio, EMPLEADOS.FechaFin, '
-			. 'TIENDAS.OID_TIENDA FROM USUARIOS, EMPLEADOS, TIENDAS ' 
-			. 'WHERE ' . 'EMPLEADOS.OID_USUARIO = USUARIOS.OID_USUARIO AND ' 
-			. 'EMPLEADOS.OID_TIENDA = TIENDAS.OID_TIENDA ' 
+			. 'TIENDAS.OID_TIENDA FROM USUARIOS, EMPLEADOS, TIENDAS '
+			. 'WHERE ' . 'EMPLEADOS.OID_USUARIO = USUARIOS.OID_USUARIO AND '
+			. 'EMPLEADOS.OID_TIENDA = TIENDAS.OID_TIENDA '
 			. 'ORDER BY OID_TIENDA, NOMBRE, APELLIDOS';
 
 	// Se comprueba que el tamaño de página, página seleccionada y total de registros son conformes.
@@ -159,43 +161,43 @@ include_once ("pie.php");
 					<input id="APELLIDOS" name="APELLIDOS"
 
 						type="hidden" value="<?php echo $fila["APELLIDOS"]; ?>"/>
-					
+
 					<input id="EMAIL" name="EMAIL"
 
 						type="hidden" value="<?php echo $fila["EMAIL"]; ?>"/>
-						
+
 					<input id="TELEFONO" name="TELEFONO"
 
 						type="hidden" value="<?php echo $fila["TELEFONO"]; ?>"/>
-						
+
 					<input id="DIRECCION" name="DIRECCION"
 
 						type="hidden" value="<?php echo $fila["DIRECCION"]; ?>"/>
-						
+
 					<input id="CONTRASEÑA" name="CONTRASEÑA"
 
 						type="hidden" value="<?php echo $fila["CONTRASEÑA"]; ?>"/>
-						
+
 					<input id="TIPOUSUARIO" name="TIPOUSUARIO"
 
 						type="hidden" value="<?php echo $fila["TIPOUSUARIO"]; ?>"/>
-						
+
 					<input id="FECHANACIMIENTO" name="FECHANACIMIENTO"
 
 						type="hidden" value="<?php echo $fila["FECHANACIMIENTO"]; ?>"/>
-					
+
 					<input id="SUELDO" name="SUELDO"
 
 						type="hidden" value="<?php echo $fila["SUELDO"]; ?>"/>
-					
+
 					<input id="FECHAINICIO" name="FECHAINICIO"
 
 						type="hidden" value="<?php echo $fila["FECHAINICIO"]; ?>"/>
-						
+
 					<input id="FECHAFIN" name="FECHAFIN"
 
 						type="hidden" value="<?php echo $fila["FECHAFIN"]; ?>"/>
-						
+
 					<input id="OID_TIENDA" name="OID_TIENDA"
 
 						type="hidden" value="<?php echo $fila["OID_TIENDA"]; ?>"/>
@@ -219,17 +221,17 @@ include_once ("pie.php");
 						<!-- mostrando título -->
 
 						<input id="SUELDO" name="SUELDO" type="hidden" value="<?php echo $fila["SUELDO"]; ?>"/>
-						
+
 						<input id="OID_TIENDA" name="OID_TIENDA" type="hidden" value="<?php echo $fila["OID_TIENDA"]; ?>"/>
-						
+
 						<input id="TIPOUSUARIO" name="TIPOUSUARIO" type="hidden" value="<?php echo $fila["TIPOUSUARIO"]; ?>"/>
-						
+
 						<div class="empleado">DNI: <?php echo $fila["DNI"] . "; Empleado: " . $fila["NOMBRE"] . " " . $fila["APELLIDOS"]; ?></div>
 
 						<div class="sueldo">Sueldo: <?php echo $fila["SUELDO"]; ?></div>
-						
+
 						<div class="oid_tienda">Tienda: <?php echo $fila["OID_TIENDA"]; ?></div>
-						
+
 						<div class="tipousuario">Tipo de Usuario: <?php echo $fila["TIPOUSUARIO"]; ?></div>
 
 				<?php } ?>
@@ -263,9 +265,9 @@ include_once ("pie.php");
 						<img src="images/remove_menuito.bmp" class="editar_fila" alt="Despedir empleado">
 
 					</button>
-					
+
 				<?php if($empleado["TIPOUSUARIO"]==0){?>
-					
+
 					  <button id="recontratar" name="recontratar" type="submit" class="editar_fila">
 
 						  Recontratar

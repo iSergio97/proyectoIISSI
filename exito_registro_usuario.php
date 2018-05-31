@@ -28,7 +28,8 @@ $conexion = crearConexionBD();
 <main>
   <?php
     if(nuevo_usuario($conexion, $nuevoUsuario)) {
-      $_SESSION['login'] = $nuevoUsuario['email'];
+      $_SESSION['login'] = $nuevoUsuario['user_name'];
+
   ?>
   <h3>Hola <?php echo $nuevoUsuario["user_name"]; ?>,
   gracias por registrarte</h3>

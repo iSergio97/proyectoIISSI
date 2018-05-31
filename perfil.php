@@ -5,14 +5,9 @@ session_start();
 require_once ("gestionBD.php");
 require_once ("gestionUsuarios.php");
 
-if (isset($_SESSION["formulario"])) {
-	$nuevoUsuario = $_SESSION["formulario"];
-  $user_name = $nuevoUsuario['user_name'];
-	$_SESSION["errores"] = null;
-} else if (isset($_SESSION['login'])) {
-  $usuario = $_SESSION['login'];
+if (isset($_SESSION["login"])) {
+	$user_name = $_SESSION["login"];
   $_SESSION["errores"] = null;
-	$_SESSION['loing']=null;
 }
 $conexion = crearConexionBD();
  ?>
@@ -29,7 +24,6 @@ $conexion = crearConexionBD();
 <div id="logout">
   Pulse <a href="paginaPrincipal.php">aquí </a> para volver a la página principal.
 </div>
-
-    Nombre de usuario: <?php if(isset($usuario)) echo $usuario; else echo "La sesión no recupera el nombre del perfl";  ?>
+    Nombre de usuario: <?php if(isset($user_name)) echo $user_name; else echo "La sesión no recupera el nombre del perfl";  ?>
   </body>
 </html>
