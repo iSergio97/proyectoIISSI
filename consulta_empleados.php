@@ -5,12 +5,17 @@
 	require_once ("gestionarEmpleados.php");
 	require_once ("paginacion_consulta.php");
 
+	if (isset($_SESSION["login"])) {
+		$user_name = $_SESSION["login"];
+	  $_SESSION["errores"] = null;
+
 	if (isset($_SESSION["empleado"])) {
 		$empleado = $_SESSION["empleado"];
 		unset($_SESSION["empleado"]);
-	} else {
-		Header("Location: categorias.php");
 	}
+} else {
+	Header("Location: login.php");
+}
 
 	// ¿Venimos simplemente de cambiar página o de haber seleccionado un registro ?
 	// ¿Hay una sesión activa?
@@ -266,7 +271,7 @@ include_once ("pie.php");
 
 					</button>
 
-				<?php if($empleado["TIPOUSUARIO"]==0){?>
+				<?php if($fila["TIPOUSUARIO"]==0){?>
 
 					  <button id="recontratar" name="recontratar" type="submit" class="editar_fila">
 

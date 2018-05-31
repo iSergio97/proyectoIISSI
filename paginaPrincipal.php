@@ -26,7 +26,9 @@ $conexion = crearConexionBD();
     </div>
 
 		<div id="barra">
-			<p><a href="categorias.php">Categorías</a>		<a href="perfil.php">Perfil</a>					Buscador: <input type="text"> <button type="submit">Buscar</p>
+			<p><a href="categorias.php">Categorías</a>		<a href="perfil.php">Perfil</a>		Buscador: <input type="text"> <button type="submit">Buscar </button>
+ <a href="consulta_empleados.php">Empleados</a>
+			</p>
 		</div>
 		<!-- Barra con: Categorías || Perfil || Buscador -->
   </main>
