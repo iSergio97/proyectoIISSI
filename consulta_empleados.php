@@ -5,9 +5,9 @@
 	require_once ("gestionarEmpleados.php");
 	require_once ("paginacion_consulta.php");
 
-	if (isset($_SESSION["usuario"])) {
-		$libro = $_SESSION["usuario"];
-		unset($_SESSION["usuario"]);
+	if (isset($_SESSION["empleado"])) {
+		$empleado = $_SESSION["empleado"];
+		unset($_SESSION["empleado"]);
 	}
 
 	// ¿Venimos simplemente de cambiar página o de haber seleccionado un registro ?
