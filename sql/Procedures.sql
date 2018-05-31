@@ -7,7 +7,7 @@ drop sequence idArticulo;
 create sequence idArticulo increment by 1 start with 1;
 
 /
-
+drop procedure añadeArticulos;
 CREATE OR REPLACE PROCEDURE añadeArticulos
   (Nombre varchar2,
   Talla varchar2,

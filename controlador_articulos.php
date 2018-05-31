@@ -12,8 +12,8 @@ if(isset($_REQUEST["ID_ARTICULO"])) {
   $articulo["TAGS"] = $_REQUEST["TAGS"];
   $articulo["TEMPORADA"] = $_REQUEST["TEMPORADA"];
 
-  $_SESSION['libro']=$libro;
+  $_SESSION['articulo']=$articulo;
 } else {
-  Header("Locatino: categorias.php");
+  Header("Location: categorias.php");
 }
 ?>
