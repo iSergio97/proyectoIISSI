@@ -53,8 +53,7 @@ CREATE OR REPLACE PROCEDURE eliminaArticulos
 BEGIN
    DELETE FROM EstadisticaArticulo WHERE idArticulo=idArticulo_A_QUITAR;
    DELETE FROM Proporciona WHERE idArticulo=idArticulo_A_QUITAR;
-   DELETE FROM LineasPedido WHERE idArticulo=idArticulo_A_QUITAR;
-   DELETE FROM LineasDevolucion WHERE idArticulo=idArticulo_A_QUITAR;
+   DELETE FROM LineasPedidos WHERE idArticulo=idArticulo_A_QUITAR;
    DELETE FROM TieneStockEn WHERE idArticulo=idArticulo_A_QUITAR;
    DELETE FROM Articulos WHERE idArticulo=idArticulo_A_QUITAR;
 END;
@@ -302,12 +301,30 @@ END;
 
 CREATE OR REPLACE PROCEDURE RECONTRATA_EMPLEADOS(
 OID_Usuario_A_RECONTRATAR IN EMPLEADOS.OID_Usuario%TYPE,
-Sueldo_A_RECONTRATAR IN EMPLEADOS:Sueldo%TYPE) IS
+Sueldo_A_RECONTRATAR IN EMPLEADOS.Sueldo%TYPE,
+OID_Tienda_A_RECONTRATAR IN EMPLEADOS.OID_Tienda%TYPE) IS
 BEGIN
   UPDATE Empleados SET FechaInicio=SYSDATE WHERE OID_Usuario=OID_Usuario_A_RECONTRATAR;
   UPDATE Empleados SET FechaFin=NULL WHERE OID_Usuario=OID_Usuario_A_RECONTRATAR;
   UPDATE Usuarios SET TipoUsuario=1 WHERE OID_Usuario=OID_Usuario_A_RECONTRATAR;
-  UPDATE Empleados SET Sueldo=Sueldo_A_RECONTRATAR WHERE OID_Usuario=OID_Usuario_A_DESPEDIR;
+  UPDATE Empleados SET Sueldo=Sueldo_A_RECONTRATAR WHERE OID_Usuario=OID_Usuario_A_RECONTRATAR;
+  UPDATE Empleados SET OID_TIENDA=OID_Tienda_A_RECONTRATAR WHERE OID_Usuario=OID_Usuario_A_RECONTRATAR;
+END;
+/
+
+/*****************************************************************************/
+/* PROCEDIMIENTO PARA MODIFICAR EMPLEADOS                                    */
+/*****************************************************************************/
+
+CREATE OR REPLACE PROCEDURE MODIFICA_EMPLEADOS(
+OID_Usuario_A_MODIFICAR IN EMPLEADOS.OID_Usuario%TYPE,
+Sueldo_A_MODIFICAR IN EMPLEADOS.Sueldo%TYPE,
+OID_Tienda_A_MODIFICAR IN EMPLEADOS.OID_Tienda%TYPE,
+TipoUsuario_A_MODIFICAR IN USUARIOS.TipoUsuario%TYPE) IS
+BEGIN
+  UPDATE Empleados SET Sueldo=Sueldo_A_MODIFICAR WHERE OID_Usuario=OID_Usuario_A_MODIFICAR;
+  UPDATE Empleados SET OID_TIENDA=OID_Tienda_A_MODIFICAR WHERE OID_Usuario=OID_Usuario_A_MODIFICAR;
+  UPDATE Usuarios SET TipoUsuario=TipoUsuario_A_MODIFICAR WHERE OID_Usuario=OID_Usuario_A_MODIFICAR;
 END;
 /
 
