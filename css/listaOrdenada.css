@@ -1,0 +1,9 @@
+ul{
+  list-style: none;
+}
+
+ul li {
+  float: left;
+  padding: 0px 20px;
+  text-align: center;
+}

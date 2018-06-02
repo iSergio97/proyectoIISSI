@@ -9,6 +9,7 @@ if (isset($_SESSION["login"])) {
 	$user_name = $_SESSION["login"];
   $_SESSION["errores"] = null;
 }
+
 $conexion = crearConexionBD();
  ?>
 

@@ -17,7 +17,7 @@ if (isset($_POST['submit'])){
 		echo "El usuario y/o la contraseña no coinciden";
 	} else {
 		$_SESSION['login'] = $user_name;
-		Header("Location: paginaPrincipal.php");
+		Header("Location: indexLog.php");
 	}
 }
  ?>

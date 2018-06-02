@@ -4,17 +4,17 @@
 	require_once ("gestionBD.php");
 	require_once ("gestionarEmpleados.php");
 	require_once ("paginacion_consulta.php");
+	require_once ("gestionUsuarios.php");
 
 	if (isset($_SESSION["login"])) {
 		$user_name = $_SESSION["login"];
 	  $_SESSION["errores"] = null;
-
 	if (isset($_SESSION["empleado"])) {
 		$empleado = $_SESSION["empleado"];
 		unset($_SESSION["empleado"]);
 	}
 } else {
-	Header("Location: login.php");
+	Header("Location: index.php");
 }
 
 	// ¿Venimos simplemente de cambiar página o de haber seleccionado un registro ?
@@ -32,6 +32,10 @@
 	unset($_SESSION["paginacion"]);
 
 	$conexion = crearConexionBD();
+	$tipoUsuario = tipoUsuario($conexion, $user_name);
+	if($tipoUsuario == 0) {
+		Header("Location: errorEmpleados.php");
+	}
 
 	// La consulta que ha de paginarse
 	$query = 'SELECT USUARIOS.OID_USUARIO, USUARIOS.DNI, USUARIOS.nombreUsuario, USUARIOS.NOMBRE, USUARIOS.APELLIDOS, '

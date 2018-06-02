@@ -34,4 +34,52 @@ function consultarDatosUsuario($conexion, $user_name, $pass) {
 	$stmt -> execute();
 	return $stmt -> fetchColumn();
 }
+
+function tipoUsuario($conexion, $user_name) {
+	$consulta = "SELECT TIPOUSUARIO FROM USUARIOS WHERE NOMBREUSUARIO=:user_name";
+	$stmt = $conexion -> prepare($consulta);
+	$stmt -> bindParam(':user_name', $user_name);
+	$stmt -> execute();
+	return $stmt -> fetch();
+}
+
+function apellidos($conexion, $user_name) {
+	$consulta = "SELECT APELLIDOS FROM USUARIOS WHERE NOMBREUSUARIO=:user_name";
+	$stmt = $conexion -> prepare($consulta);
+	$stmt -> bindParam(':user_name', $user_name);
+	$stmt -> execute();
+	return $stmt -> fetchColumn();
+}
+
+function email($conexion, $user_name) {
+	$consulta = "SELECT EMAIL FROM USUARIOS WHERE NOMBREUSUARIO=:user_name";
+	$stmt = $conexion -> prepare($consulta);
+	$stmt -> bindParam(':user_name', $user_name);
+	$stmt -> execute();
+	return $stmt -> fetchColumn();
+}
+
+function telefono($conexion, $user_name) {
+	$consulta = "SELECT TELEFONO FROM USUARIOS WHERE NOMBREUSUARIO=:user_name";
+	$stmt = $conexion -> prepare($consulta);
+	$stmt -> bindParam(':user_name', $user_name);
+	$stmt -> execute();
+	return $stmt -> fetchColumn();
+}
+
+function dni($conexion, $user_name) {
+	$consulta = "SELECT DNI FROM USUARIOS WHERE NOMBREUSUARIO=:user_name";
+	$stmt = $conexion -> prepare($consulta);
+	$stmt -> bindParam(':user_name', $user_name);
+	$stmt -> execute();
+	return $stmt -> fetchColumn();
+}
+
+function direccion($conexion, $user_name) {
+	$consulta = "SELECT DIRECCION FROM USUARIOS WHERE NOMBREUSUARIO=:user_name";
+	$stmt = $conexion -> prepare($consulta);
+	$stmt -> bindParam(':user_name', $user_name);
+	$stmt -> execute();
+	return $stmt -> fetchColumn();
+}
 ?>

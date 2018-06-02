@@ -4,5 +4,5 @@
     if (isset($_SESSION['login']))
         unset($_SESSION['login']);
 
-    header("Location: registro_usuario.php");
+    header("Location: index.php");
 ?>

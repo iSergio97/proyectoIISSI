@@ -7,7 +7,6 @@ require_once ("gestionUsuarios.php");
 
 if (isset($_SESSION["formulario"])) {
 	$nuevoUsuario = $_SESSION["formulario"];
-	$_SESSION["formulario"] = null;
 	$_SESSION["errores"] = null;
 } else
 	Header("Location: registro_usuario.php");
@@ -34,7 +33,7 @@ $conexion = crearConexionBD();
   <h3>Hola <?php echo $nuevoUsuario["user_name"]; ?>,
   gracias por registrarte</h3>
 	<div>
-		Pulsa <a href="paginaPrincipal.php">aquí</a> para acceder a la página principal.
+		Pulsa <a href="indexLog.php">aquí</a> para acceder a la página principal.
 	</div>
   <?php	} else {
     Header("Location: registro_usuario.php");
