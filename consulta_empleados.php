@@ -220,8 +220,8 @@ include_once ("pie.php");
 						<!-- Editando título -->
 
 						<h3><input id="SUELDO" name="SUELDO" type="text" value="<?php echo $fila["SUELDO"]; ?>"/>	</h3>
-						<h3><input id="OID_TIENDA" name="OID_TIENDA" type="text" value="<?php echo $fila["OID_TIENDA"]; ?>"/>	</h3>
-						<h3><input id="TIPOUSUARIO" name="TIPOUSUARIO" type="text" value="<?php echo $fila["TIPOUSUARIO"]; ?>"/>	</h3>
+						<h3><input id="OID_TIENDA" name="OID_TIENDA" type="text" value="<?php echo $fila["OID_TIENDA"]; ?>" required/>	</h3>
+						<h3><input id="TIPOUSUARIO" name="TIPOUSUARIO" type="text" value="<?php echo $fila["TIPOUSUARIO"]; ?>" required/>	</h3>
 
 						<h4><?php echo "DNI: " . $fila["DNI"] . "; Empleado: " . $fila["NOMBRE"] . " " . $fila["APELLIDOS"]; ?></h4>
 
