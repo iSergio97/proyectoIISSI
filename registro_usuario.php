@@ -25,6 +25,8 @@ if (!isset($_SESSION['formulario'])) {
 		<meta charset="utf-8">
 		<title>Sweet Modas: Registro</title>
 		<link rel="stylesheet" href="css/tienda.css">
+		<link rel="stylesheet" href="css/listaOrdenada.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
   	<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
 
@@ -142,7 +144,7 @@ if (!isset($_SESSION['formulario'])) {
 
 		</fieldset>
 
-		<div><input type="submit" value="Enviar" /></div>
+		<div><input type="submit" value="Enviar" class="btn btn-info"/></div>
 
 		</form>
 	</div>

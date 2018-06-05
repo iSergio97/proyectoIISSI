@@ -56,13 +56,14 @@ cerrarConexionBD($conexion);
     <meta charset="utf-8">
     <title>Sweet Modas: Categorías</title>
 		<link rel="stylesheet" href="css/listaOrdenada.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
 	<main>
 
 <ul>
-	<li><a href="registro_usuario.php"> <button type="button"> Registrarse</button></a></li>
-	<li><a href="login.php"><button type="button">Login</button></a></li>
+	<li><a href="registro_usuario.php"> <button type="button" class="btn btn-info"> Registrarse</button></a></li>
+	<li><a href="login.php"><button type="button" class="btn btn-info">Login</button></a></li>
 	<li><a href="consulta_tiendas.php">Tiendas</a></button></li>
 	<br>
 </ul>
@@ -90,7 +91,7 @@ cerrarConexionBD($conexion);
 	Mostrando
 	<input type="number" name="PAG_TAM"
 	min="1" max="<?php echo $total_registros; ?>" /> de <?php echo $total_registros; ?> entradas
-	<input type="submit" value="Enviar"/>
+	<input type="submit" value="Enviar" class="btn btn-info"/>
 	<br>
 	<br>
 

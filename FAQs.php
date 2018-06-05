@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-	<?php
-	include_once ("cabecera.php");
-	?>
 	<head>
+		<link rel="stylesheet" href="css/listaOrdenada.css">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<meta charset="utf-8">
 
 		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
@@ -92,8 +91,6 @@
 
 			</ul>
 		</div>
-		<?php
-		include_once ("pie.php");
-		?>
+		
 	</body>
 </html>

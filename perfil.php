@@ -23,15 +23,15 @@ $direccion = direccion($conexion, $user_name);
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
+  	
+	<link rel="stylesheet" href="css/listaOrdenada.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/logout.css" />
     <title>Perfil</title>
   </head>
   <body>
 <p>    Página para mostrar el perfil del usuario </p>
-<div id="logout">
-  Pulse <a href="indexLog.php">aquí </a> para volver a la página principal.
-</div>
+
     Nombre de usuario: <?php if(isset($user_name)) echo $user_name; else echo "La sesión no recupera el nombre del perfl";  ?>
 		<br>
 		Apellidos: <?php if(isset($user_name)) echo $apellidos; else echo "La sesión no recupera el nombre del perfl";  ?>
@@ -43,5 +43,8 @@ $direccion = direccion($conexion, $user_name);
 		Email: <?php if(isset($user_name)) echo $email; else echo "La sesión no recupera el nombre del perfl";  ?>
 		<br>
 		Dirección: <?php if(isset($user_name)) echo $direccion; else echo "La sesión no recupera el nombre del perfl";  ?>
+		<div id="logout">
+  Pulse <a href="indexLog.php">aquí </a> para volver a la página principal.
+</div>
   </body>
 </html>
