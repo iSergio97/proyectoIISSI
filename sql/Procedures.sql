@@ -263,6 +263,35 @@ BEGIN
 /
 
 /*****************************************************************************/
+/* PROCEDIMIENTO PARA MODIFICAR USUARIO                                     */
+/*****************************************************************************/
+
+CREATE OR REPLACE PROCEDURE MODIFICA_USUARIO(
+Username_A_MODIFICAR IN USUARIOS.NOMBREUSUARIO%TYPE,
+P_DNI IN USUARIOS.DNI%TYPE,
+P_USERNAME IN USUARIOS.NOMBREUSUARIO%TYPE,
+P_NOM IN USUARIOS.NOMBRE%TYPE,
+P_APE IN USUARIOS.APELLIDOS%TYPE,
+P_EMAIL IN USUARIOS.EMAIL%TYPE,
+P_TELF IN USUARIOS.TELEFONO%TYPE,
+P_DIR IN USUARIOS.DIRECCION%TYPE,
+P_PASS IN USUARIOS.CONTRASEÑA%TYPE,
+P_FECHA_NAC DATE) IS
+BEGIN
+  UPDATE Usuarios SET DNI=P_DNI WHERE NombreUsuario=Username_A_MODIFICAR;
+  UPDATE Usuarios SET NOMBRE=P_NOM WHERE NombreUsuario=Username_A_MODIFICAR;
+  UPDATE Usuarios SET APELLIDOS=P_APE WHERE NombreUsuario=Username_A_MODIFICAR;
+  UPDATE Usuarios SET EMAIL=P_EMAIL WHERE NombreUsuario=Username_A_MODIFICAR;
+  UPDATE Usuarios SET TELEFONO=P_TELF WHERE NombreUsuario=Username_A_MODIFICAR;
+  UPDATE Usuarios SET DIRECCION=P_DIR WHERE NombreUsuario=Username_A_MODIFICAR;
+  UPDATE Usuarios SET DNI=P_DNI WHERE NombreUsuario=Username_A_MODIFICAR;
+  UPDATE Usuarios SET CONTRASEÑA=P_PASS WHERE NombreUsuario=Username_A_MODIFICAR;
+  UPDATE Usuarios SET FechaNacimiento=P_FECHA_NAC WHERE NombreUsuario=Username_A_MODIFICAR;
+  UPDATE Usuarios SET nombreUsuario=P_USERNAME WHERE NombreUsuario=Username_A_MODIFICAR;
+END;
+/
+
+/*****************************************************************************/
 /* PROCEDIMIENTO PARA AÑADIR EMPLEAODS                                       */
 /*****************************************************************************/
 
