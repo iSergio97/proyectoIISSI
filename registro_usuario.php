@@ -139,7 +139,7 @@ if (!isset($_SESSION['formulario'])) {
 		<label>
 		Confirmar contraseña
 	</label for="confirmpass">
-		<input id="confirmpass" name="confirmpass"  type="password" oninput="passwordConfirmation();" required"/>
+		<input id="confirmpass" name="confirmpass"  type="password" oninput="passwordConfirmation();" required/>
 		</div>
 
 		</fieldset>

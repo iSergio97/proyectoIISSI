@@ -9,7 +9,7 @@ if (isset($_SESSION["login"])) {
 	$user_name = $_SESSION["login"];
   $_SESSION["errores"] = null;
 } else {
-	Header("Location: index.php");
+	Header("Location: indexLog.php");
 }
 
 $conexion = crearConexionBD();
@@ -26,34 +26,34 @@ $fecha_nacimiento=fechaNacimientoMostrar($conexion, $user_name);
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
-  	
+
 	<link rel="stylesheet" href="css/listaOrdenada.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <meta charset="utf-8">
     <title>Perfil</title>
   </head>
   <body>
-<p>    Página para mostrar el perfil del usuario </p>
 
-    Nombre de usuario: <?php if(isset($user_name)) echo $user_name; else echo "La sesión no recupera el nombre del perfl";  ?>
+    <strong>Nombre de usuario:</strong> <?php if(isset($user_name)) echo $user_name; else echo "La sesión no recupera el nombre del perfl";  ?>
 		<br>
-		Nombre: <?php if(isset($user_name)) echo $nombre; else echo "La sesión no recupera el nombre del perfl";  ?>
+		<strong>Nombre:</strong> <?php if(isset($user_name)) echo $nombre; else echo "La sesión no recupera el nombre ";  ?>
 		<br>
-		Apellidos: <?php if(isset($user_name)) echo $apellidos; else echo "La sesión no recupera el nombre del perfl";  ?>
+		<strong>Apellidos:</strong> <?php if(isset($user_name)) echo $apellidos; else echo "La sesión no recupera los apellidos";  ?>
 		<br>
-		DNI: <?php if(isset($user_name)) echo $dni; else echo "La sesión no recupera el nombre del perfl";  ?>
+		<strong>DNI:</strong> <?php if(isset($user_name)) echo $dni; else echo "La sesión no recupera el DNI";  ?>
 		<br>
-		Teléfono: <?php if(isset($user_name)) echo $telefono; else echo "La sesión no recupera el nombre del perfl";  ?>
+		<strong>Teléfono:</strong> <?php if(isset($user_name)) echo $telefono; else echo "La sesión no recupera el telefono";  ?>
 		<br>
-		Email: <?php if(isset($user_name)) echo $email; else echo "La sesión no recupera el nombre del perfl";  ?>
+		<strong>Email:</strong> <?php if(isset($user_name)) echo $email; else echo "La sesión no recupera el email";  ?>
 		<br>
-		Dirección: <?php if(isset($user_name)) echo $direccion; else echo "La sesión no recupera el nombre del perfl";  ?>
+		<strong>Dirección:</strong> <?php if(isset($user_name)) echo $direccion; else echo "La sesión no recupera la direccion";  ?>
 		<br>
-		Fecha de nacimiento: <?php if(isset($user_name)) echo $fecha_nacimiento; else echo "La sesión no recupera el nombre del perfl";  ?>
+		<strong>Fecha de nacimiento:</strong> <?php if(isset($user_name)) echo $fecha_nacimiento; else echo "La sesión no recupera la fecha de nacimiento";  ?>
 		<br>
-		<button><a href="modificacion_usuario.php">Modificar</a></button>
+		<p>Haga click <a href="modificacion_usuario.php">aquí</a>para modificar su perfil</p>
 		<div id="logout">
   Pulse <a href="indexLog.php">aquí </a> para volver a la página principal.
+
 </div>
   </body>
 </html>

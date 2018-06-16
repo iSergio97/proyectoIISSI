@@ -116,6 +116,7 @@ cerrarConexionBD($conexion);
 						<th><strong>Tallas</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 						<th><strong>Precio</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 						<th><strong>Tags</strong></th>
+						<th><strong>Botón editar artículo</strong></th>
 						</tr>
 					<?php foreach ($filas as $fila) {
                     ?>
@@ -124,11 +125,14 @@ cerrarConexionBD($conexion);
 							<td><?php echo $fila['TALLA'] ?></td>
 							<td><?php echo $fila['PRECIO'] ?></td>
 							<td><?php echo $fila['TAGS'] ?></td>
-					<?php }
-					 ?>
-	
-		</div>
-
+							<td>	<button id="editar" name="editar" type="submit" class="editar_fila">
+									<img src="images/pencil_menuito.bmp" class="editar_fila" alt="Editar artículo">
+								</button></td>
+						</div>
+	<?php
+ }
+	 ?>
+ </div>
 	</form>
 </article>
 	</main>

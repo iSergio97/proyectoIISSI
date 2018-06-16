@@ -76,7 +76,7 @@ cerrarConexionBD($conexion);
 				 echo $pagina;
 			 }else {
 					?>
-				 <a href="index.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+				 <a href="index.php?PAG_NUM=<?php echo $pagina; ?>&&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 				 <?php
 			 }
 			}
@@ -124,7 +124,7 @@ cerrarConexionBD($conexion);
 							<td><?php echo $fila['TAGS'] ?></td>
 					<?php }
 					 ?>
-	
+
 		</div>
 
 	</form>

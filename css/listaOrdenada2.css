@@ -14,14 +14,9 @@ body{
 	background-image: url("./../images/fondo.jpg");
 	background-size: 100%;
 	color: black;
-	padding: 100px;
-	text-align: center;
-	
+
 }
 
-fieldset{
-	background-color: red;
-}
 table{
 	color: black;
 	font-size: large;

@@ -35,12 +35,11 @@ function consultarDatosUsuario($conexion, $user_name, $pass) {
 	return $stmt -> fetchColumn();
 }
 
-function modificar_usuario($conexion,$user_name,$dni,$user_name_new,$nombre,$apellidos,$email,$telefono,$direccion,$contraseña,$fecha_nacimiento) {
+function modificar_usuario($conexion,$user_name,$dni,$nombre,$apellidos,$email,$telefono,$direccion,$contraseña,$fecha_nacimiento) {
 	try {
-		$stmt=$conexion->prepare('CALL MODIFICA_USUARIO(:Username,:DNI,:Username_NEW,:NOMBRE,:APELLIDOS,:EMAIL,:TELEFONO,:DIRECCION,:CONTRASEÑA,:FECHA_NAC)');
-		$stmt->bindParam(':Username',$user_name);
+		$stmt=$conexion->prepare('CALL MODIFICA_USUARIO(:DNI,:P_Username,:NOMBRE,:APELLIDOS,:EMAIL,:TELEFONO,:DIRECCION,:CONTRASEÑA,:FECHA_NAC)');
+		$stmt->bindParam(':P_Username',$user_name);
 		$stmt->bindParam(':DNI',$dni);
-		$stmt->bindParam(':Username_NEW',$user_name_new);
 		$stmt->bindParam(':NOMBRE',$nombre);
 		$stmt->bindParam(':APELLIDOS',$apellidos);
 		$stmt->bindParam(':EMAIL',$email);
