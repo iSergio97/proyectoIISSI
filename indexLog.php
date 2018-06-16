@@ -104,70 +104,33 @@ cerrarConexionBD($conexion);
 
 
 
-<?php foreach ($filas as $fila) {
-//Nombre talla precio tags
-
-?>
-
 <article class="articulos">
 	<form action="controlador_articulos.php" method="post">
 		<div class="fila_articulo">
 			<div class="datos_articulo">
 
 				<table class="tablaArticulos">
+
 						<tr>
 						<th><strong>Nombre</strong>&nbsp;&nbsp;&nbsp;</th>
 						<th><strong>Tallas</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 						<th><strong>Precio</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 						<th><strong>Tags</strong></th>
 						</tr>
+					<?php foreach ($filas as $fila) {
+                    ?>
 						<tr>
 							<td><?php echo $fila['NOMBRE'] ?> </td>
 							<td><?php echo $fila['TALLA'] ?></td>
 							<td><?php echo $fila['PRECIO'] ?></td>
 							<td><?php echo $fila['TAGS'] ?></td>
-						</tr>
-					</table>
-						<!--
-				<input id="nombreArticulo"type="hidden" name="nombreArticulo" value="<?php echo $fila['NOMBRE']; ?>"/>
-		 			<input id="Talla"type="hidden" name="talla" value="<?php echo $fila['TALLA']; ?>"/>
-					<input id="precio" type="hidden" name="precio" value="<?php echo $fila['PRECIO']; ?>"/>
-					<input id="tags" type="hidden" name="tags" value="<?php echo $fila['TAGS']; ?>"/>
-			<input id="nombreArticulo"type="hidden" name="nombreArticulo" value="<?php echo $fila['NOMBRE']; ?>"/>
- 			<input id="Talla"type="hidden" name="talla" value="<?php echo $fila['TALLA']; ?>"/>
-			<input id="precio" type="hidden" name="precio" value="<?php echo $fila['PRECIO']; ?>"/>
-			<input id="tags" type="hidden" name="tags" value="<?php echo $fila['TAGS']; ?>"/>
--->
-				 <?php
-
-				 if (isset($articulo)) {
-
-				 ?>
-				 <?php
-
-			 } else {?>
-<!--
-				<input id="Articulo" type="hidden" name="Articulo" value="<?php  $fila['NOMBRE']?>"/>
-					<div class="nombre"><b><?php echo $fila['NOMBRE']; ?>
-					<div class="talla"><b><?php echo $fila['TALLA']; ?>
-					<div class="tags"><b><?php echo $fila['TAGS'];?>
-						<div class="precio"><b><?php echo $fila['PRECIO'];?>
--->
-				</div>
-				<?php
-			 }
-				  ?>
-
-			</div>
+					<?php }
+					 ?>
+	
 		</div>
 
 	</form>
 </article>
-
-
-<?php
-}
- ?>
 	</main>
   </body>
 </html>
