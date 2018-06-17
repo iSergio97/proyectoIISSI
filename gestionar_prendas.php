@@ -23,23 +23,18 @@ function editarPerfil($conexion, $perfil) {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function editarArticulos($conexion, $nombre, $precio, $talla, $tags) {
+    try {
+      $stmt=$conexion->prepare('CALL ACCION_MODIFICAR_ARTICULO(:NOMBRE, :PRECIO, :TALLA, :TAGS)');
+      $stmt->bindParam(':NOMBRE', $nombre);
+      $stmt->bindParam(':PRECIO', $precio);
+      $stmt->bindParam(':TALLA', $talla);
+      $stmt->bindParam(':TAGS', $tags);
+      $stmt->execute();
+      return "";
+    } catch (PDOException $e) {
+      return $e->getMessage();
+      }
+}
 
  ?>
