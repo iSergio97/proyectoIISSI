@@ -10,7 +10,7 @@ if(isset($_REQUEST["ID_ARTICULO"])) {
   $_SESSION['articulo']=$articulo;
 
   if (isset($_REQUEST["editar"])){
-    Header("Location: indexLogCompra.php");
+    Header("Location: indexLog.php");
   } else if ($_REQUEST("grabar")) {
     Header("Location: accion_modificar_articulo.php");
   } else {

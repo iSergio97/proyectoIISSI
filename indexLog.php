@@ -121,7 +121,21 @@ cerrarConexionBD($conexion);
 						</tr>
 					<?php foreach ($filas as $fila) {
                     ?>
+                    	<?php
+					if (isset($articulo) and ($articulo["idArticulo"] == $fila["idArticulo"])) { ?>
 						<tr>
+							<td><h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila['NOMBRE']; ?>"/>	</h3> </td>
+							<td><h3><input id="TALLA" name="TALLA" type="text" value="<?php echo $fila['TALLA']; ?>"/>	</h3></td>
+							<td><h3><input id="PRECIO" name="PRECIO" type="text" value="<?php echo $fila['PRECIO']; ?>"/>	</h3></td>
+							<td><h3><input id="TAGS" name="TAGS" type="text" value="<?php echo $fila['TAGS']; ?>"/>	</h3></td>
+							<td>	<button id="grabar" name="grabar" type="submit" class="editar_fila">
+									<img src="images/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación artículo">
+								</button>
+							</td>
+							<td><img src="images/carritoCompra.png" width="30px"/><input type="number" /><a href="cesta.php">Añadir a la cesta</a>
+						</td>
+						<?php }	else { ?>
+							<tr>
 							<td><?php echo $fila['NOMBRE'] ?> </td>
 							<td><?php echo $fila['TALLA'] ?></td>
 							<td><?php echo $fila['PRECIO'] ?></td>
@@ -132,6 +146,7 @@ cerrarConexionBD($conexion);
 							</td>
 							<td><img src="images/carritoCompra.png" width="30px"/><input type="number" /><a href="cesta.php">Añadir a la cesta</a>
 						</td>
+						<?php } ?>
 						</div>
 
 	<?php
