@@ -22,10 +22,11 @@
 			$_SESSION["formulario"] = $usuarioModificado;
 		}
 		$conexion = crearConexionBD();
+		$oid_usuario=oidUsuario($conexion, $user_name);
 		$errores = validarDatosUsuario($usuarioModificado);
-		$excepcion = modificar_usuario($conexion, $usuarioModificado["dni"], $usuarioModificado["user_name"], $usuarioModificado["nombre"], $usuarioModificado["apellidos"],
-									   $usuarioModificado["email"], $usuarioModificado["telefono"], $usuarioModificado["direccion"], $usuarioModificado["pass"],
-									   $usuarioModificado["fecNac"]);
+		$excepcion = modificar_usuario($conexion, $usuarioModificado["dni"], $oid_usuario, $usuarioModificado["nombre"], $usuarioModificado["apellidos"],
+									   $usuarioModificado["email"], $usuarioModificado["telefono"], $usuarioModificado["direccion"],
+									   $usuarioModificado["pass"], $usuarioModificado["fecNac"], $usuarioModificado["user_name"]);
 
 		if (count($errores) > 0 && $excepcion<>"") {
 			$_SESSION["errores"] = $errores;
