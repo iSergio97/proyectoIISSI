@@ -26,11 +26,14 @@ if (isset($_POST['submit'])){
 <html lang="es" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/listaOrdenada.css">
+		
+		<link rel="stylesheet" href="css/fondo.css">
 		<title></title>
 	</head>
 	<body>
+		<?php
+		include_once("cabecera.php");
+		?>
 		<div id="login">
 			<form action="login.php" method="post">
 
@@ -41,12 +44,9 @@ if (isset($_POST['submit'])){
 					<input type="submit" name="submit" value="submit" class="btn btn-info" />
 				</form>
 		</div>
-			<div id="footer">
-				<footer>
-				<img src="images/Logo.jpeg" alt="Sweet Modas" width="10%" height="10%">
-				<br/>
-				&copy; Grupo IISSI 2018
-				</footer>
-			</div>
+			<?php
+		include_once("pie.php");
+		?>
+		
 	</body>
 </html>

@@ -15,19 +15,22 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/biblio.css" />
+  <link rel="stylesheet" type="text/css" href="css/fondo.css" />
   <title>Se acaba de producir un problema</title>
 </head>
 <body>
-
+<?php
+include_once("cabecera.php");
+?>
 	<div>
 		<h2>Lo sentimos</h2>
 		<?php if ($destino<>"") { ?>
 		<p>Ocurrió un problema durante el procesado de los datos. Pulse <a href="<?php echo $destino ?>">aquí</a>
        para volver a la página principal.</p>
 		<?php } else { ?>
-		<p>Ocurrió un problema para acceder a la base de datos. </p>
+		<p>Ocurrió un problema para acceder a la base de datos. Vuelva a la página principal. </p>
 		<?php } ?>
+		<button><a href="indexLog.php">Página principal</a></button>
 	</div>
 
 	<div class='excepcion'>

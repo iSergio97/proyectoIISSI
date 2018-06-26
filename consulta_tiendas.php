@@ -24,42 +24,21 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="css/listaOrdenada.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/fondo.css">
   <title>Sweet Modas: Lista de Tiendas</title>
 </head>
 
 <body>
 
 <?php
-	//include_once("cabecera.php");
-	//include_once("menu.php");
+	include_once("cabecera.php");
+	
 ?>
 
 <main>
-	 <nav>
-		<div id="enlaces">
-			<?php
-				for( $pagina = 1; $pagina <= $total_paginas; $pagina++ )
-					if ( $pagina == $pagina_seleccionada) { 	?>
-						<span class="current"><?php echo $pagina; ?></span>
-			<?php }	else { ?>
-						<a href="consulta_tiendas.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
-			<?php } ?>
-		</div>
 
-		<form method="get" action="consulta_tiendas.php">
-			<input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>
-			Mostrando
-			<input id="PAG_TAM" name="PAG_TAM" type="number"
-				min="1" max="<?php echo $total_registros;?>"
-				value="<?php echo $pag_tam?>" autofocus="autofocus" />
-			entradas de <?php echo $total_registros?>
-			<input type="submit" value="Cambiar" class="btn btn-info">
-		</form>
-	</nav>
 	<div id="logout">
-  Pulse <a href="indexLog.php">aquí </a> para volver a la página principal.
+ <button><a href="indexLog.php">Página principal</a></button>
 </div>
 	<?php
 		foreach($filas as $fila) {

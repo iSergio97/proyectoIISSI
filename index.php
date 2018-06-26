@@ -55,13 +55,15 @@ cerrarConexionBD($conexion);
   <head>
     <meta charset="utf-8">
     <title>Sweet Modas: Categorías</title>
-		<link rel="stylesheet" href="css/listaOrdenada.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/fondo.css">
   </head>
   <body>
+  	<?php
+  	include_once("cabecera.php");
+	?>
 	<main>
 
-<ul>
+<ul class="topnav" id="myTopnav">
 	<li><a href="registro_usuario.php"> <button type="button" class="btn btn-info"> Registrarse</button></a></li>
 	<li><a href="login.php"><button type="button" class="btn btn-info">Login</button></a></li>
 	<li><a href="consulta_tiendas.php">Tiendas</a></button></li>
@@ -130,5 +132,7 @@ cerrarConexionBD($conexion);
 	</form>
 </article>
 	</main>
+	
   </body>
+  
 </html>

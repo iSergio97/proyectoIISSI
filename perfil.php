@@ -27,13 +27,14 @@ $fecha_nacimiento=fechaNacimientoMostrar($conexion, $user_name);
 <html lang="es" dir="ltr">
   <head>
 
-	<link rel="stylesheet" href="css/listaOrdenada.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fondo.css">
     <meta charset="utf-8">
     <title>Perfil</title>
   </head>
   <body>
-
+<?php
+include_once("cabecera.php");
+?>
     <strong>Nombre de usuario:</strong> <?php if(isset($user_name)) echo $user_name; else echo "La sesión no recupera el nombre del perfl";  ?>
 		<br>
 		<strong>Nombre:</strong> <?php if(isset($user_name)) echo $nombre; else echo "La sesión no recupera el nombre ";  ?>
@@ -52,7 +53,7 @@ $fecha_nacimiento=fechaNacimientoMostrar($conexion, $user_name);
 		<br>
 		<p>Haga click <a href="modificacion_usuario.php">aquí</a>para modificar su perfil</p>
 		<div id="logout">
-  Pulse <a href="indexLog.php">aquí </a> para volver a la página principal.
+ <button><a href="indexLog.php">Página principal</a></button>
 
 </div>
   </body>

@@ -24,9 +24,8 @@ if (!isset($_SESSION['formulario'])) {
 	<head>
 		<meta charset="utf-8">
 		<title>Sweet Modas: Registro</title>
-		<link rel="stylesheet" href="css/tienda.css">
-		<link rel="stylesheet" href="css/listaOrdenada.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="css/tienda.css"> -->
+		<link rel="stylesheet" href="css/fondo.css">
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
   	<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
 
@@ -34,7 +33,9 @@ if (!isset($_SESSION['formulario'])) {
 	</head>
 
 	<body>
-
+ 	<?php
+ 	include_once("cabecera.php");
+	?>
 		<script>
 
 			$(document).ready(function() {
@@ -55,7 +56,7 @@ if (!isset($_SESSION['formulario'])) {
 		?>
 
 		<header>
-		<h1>Sweet Modas</h1>
+		
 		<h2>Registro de usuarios</h2>
 		</header>
 <div id="registroUsuario">
@@ -151,12 +152,6 @@ if (!isset($_SESSION['formulario'])) {
 
 	<p> Pulse <a href="login.php">aquí </a> para acceder a la página de Login si ya está registrado</p>
 
-	<div id="footer">
-		<footer>
-		<img src="images/Logo.jpeg" alt="Sweet Modas" width="10%" height="10%">
-		<br/>
-		&copy; Grupo IISSI 2018
-		</footer>
-		<div>
+	
 	</body>
 </html>

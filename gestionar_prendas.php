@@ -23,7 +23,7 @@ function editarPerfil($conexion, $perfil) {
   }
 }
 
-function editarArticulos($conexion, $nombre, $precio, $talla, $tags) {
+function accion_modificar_articulo($conexion, $nombre, $precio, $talla, $tags) {
     try {
       $stmt=$conexion->prepare('CALL ACCION_MODIFICAR_ARTICULO(:NOMBRE, :PRECIO, :TALLA, :TAGS)');
       $stmt->bindParam(':NOMBRE', $nombre);

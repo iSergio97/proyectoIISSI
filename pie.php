@@ -1,3 +1,4 @@
+<div id="footer">
 <footer>
 	<link  rel="stylesheet" type="text/css" href="css/ListaPie.css"/>
 	<div class="lista">
@@ -14,3 +15,4 @@
 </center>
 	</div>
 </footer>
+</div>

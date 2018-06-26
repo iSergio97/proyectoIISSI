@@ -3,12 +3,13 @@
 
 	if (isset($_SESSION["articulo"])) {
 		$articulo = $_SESSION["articulo"];
+		unset($_SESSION["articulo"]);
 
 		require_once("gestionBD.php");
 		require_once("gestionar_prendas.php");
 
 		$conexion = crearConexionBD();
-		$excepcion = editarArticulos($conexion, $articulo["NOMBRE"], $articulo["PRECIO"], $articulo["TALLA"], $articulo["TAGS"]);
+		$excepcion = accion_modificar_articulo($conexion, $articulo["idArticulo"], $articulo["NOMBRE"], $articulo["PRECIO"], $articulo["TALLA"], $articulo["TAGS"]);
 		cerrarConexionBD($conexion);
 
 		if ($excepcion<>"") {

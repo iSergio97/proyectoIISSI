@@ -2,6 +2,7 @@
 session_start();
 
 require_once ("gestionBD.php");
+require_once ("gestionar_prendas.php");
 require_once ("gestionUsuarios.php");
 require_once("paginacion_consulta.php");
 
@@ -57,12 +58,17 @@ cerrarConexionBD($conexion);
   <head>
     <meta charset="utf-8">
     <title>Sweet Modas: Categorías</title>
-		<link rel="stylesheet" href="css/listaOrdenada.css">
+		<link rel="stylesheet" href="css/fondo.css">
   </head>
   <body>
+  	
+  	<?php
+	include_once("cabecera.php");
+?>
+
 	<main>
 
-<ul>
+<ul class="topnav" id="myTopnav">
 	<li><a href="logout.php"><button type="button">Cerrar sesión</button></a></li>
 	<li><a href="consulta_tiendas.php">Tiendas</a></button></li>
   <li><a href="consulta_empleados.php">Empleados</a></li>
@@ -156,6 +162,14 @@ cerrarConexionBD($conexion);
  </div>
 	</form>
 </article>
+  
 	</main>
+	
+
   </body>
+
+  
+ 
+ 	
+    	
 </html>

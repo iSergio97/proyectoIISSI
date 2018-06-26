@@ -55,8 +55,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<link rel="stylesheet" href="css/listaOrdenada.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fondo.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- Hay que indicar el fichero externo de estilos -->
@@ -66,6 +65,9 @@
 </head>
 
 <body>
+	<?php
+	include_once("cabecera.php");
+	?>
 <button><a href="indexLog.php">Página principal</a></button>
 
 <main>
