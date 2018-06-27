@@ -25,25 +25,32 @@ if (!isset($_SESSION['formulario'])) {
 		<meta charset="utf-8">
 		<title>Sweet Modas: Registro</title>
 		<!-- <link rel="stylesheet" href="css/tienda.css"> -->
-		<link rel="stylesheet" href="css/fondo.css">
+		<link rel="stylesheet" type="text/css" href="css/fondo.css">
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
   	<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
 
-		</script>
+		
 	</head>
 
 	<body>
+			<script>
+	
+		$(document).ready(function() {
+		
+			
+			$("#pass").on("keyup", function() {
+			
+				passwordColor();
+			});
+
+		});
+	</script>
+		
+	
  	<?php
  	include_once("cabecera.php");
 	?>
-		<script>
-
-			$(document).ready(function() {
-				$("#pass").on('keyup', function() {
-					passwordColor();
-				});
-			});
-		</script>
+		
 
 		<?php
 			// Mostrar los erroes de validación (Si los hay)
@@ -133,14 +140,14 @@ if (!isset($_SESSION['formulario'])) {
 		<label>
 		Contraseña
 	</label for="pass">
-		<input id="pass" name="pass"  type="password" />
+		<input id="pass" name="pass"  type="password" placeholder="Mínimo 8 caracteres entre letras y dígitos" required oninput="passwordValidation(); "/>
 		</div>
 
 		<div>
 		<label>
 		Confirmar contraseña
 	</label for="confirmpass">
-		<input id="confirmpass" name="confirmpass"  type="password" oninput="passwordConfirmation();" required/>
+		<input id="confirmpass" name="confirmpass"  type="password"  placeholder="Confirmación de contraseña"  oninput="passwordConfirmation();"/>
 		</div>
 
 		</fieldset>
