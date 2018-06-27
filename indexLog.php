@@ -35,7 +35,7 @@ if ($pag_tam < 1) $pag_tam = 5;
 
 $conexion = crearConexionBD();
 
-$query= 'SELECT NOMBRE, TALLA, PRECIO, TAGS FROM ARTICULOS';
+$query= 'SELECT IDARTICULO, NOMBRE, TALLA, PRECIO, TAGS, TIPOARTICULO, SECCION, COLOR, TEMPORADA FROM ARTICULOS';
 
 $total_registros = total_consulta( $conexion, $query );
 $total_paginas=(int) $total_registros / $pag_tam;
@@ -111,9 +111,18 @@ cerrarConexionBD($conexion);
 
 
 <article class="articulos">
-	<form action="controlador_articulos.php" method="post">
+	<form method="post" action="controlador_articulos.php">
 		<div class="fila_articulo">
 			<div class="datos_articulo">
+				<h3><input id="IDARTICULO" name="IDARTICULO" type="hidden" value="<?php echo $fila['IDARTICULO']; ?>"/>	</h3>
+				<h3><input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila['NOMBRE']; ?>"/>	</h3>
+				<h3><input id="TALLA" name="TALLA" type="hidden" value="<?php echo $fila['TALLA']; ?>"/>	</h3>
+				<h3><input id="PRECIO" name="PRECIO" type="hidden" value="<?php echo $fila['PRECIO']; ?>"/>	</h3>
+				<h3><input id="TAGS" name="TAGS" type="hidden" value="<?php echo $fila['TAGS']; ?>"/>	</h3>
+				<h3><input id="TIPOARTICULO" name="TIPOARTICULO" type="hidden" value="<?php echo $fila['TIPOARTICULO']; ?>"/>	</h3>
+				<h3><input id="SECCION" name="SECCION" type="hidden" value="<?php echo $fila['SECCION']; ?>"/>	</h3>
+				<h3><input id="COLOR" name="COLOR" type="hidden" value="<?php echo $fila['COLOR']; ?>"/>	</h3>
+				<h3><input id="TEMPORADA" name="TEMPORADA" type="hidden" value="<?php echo $fila['TEMPORADA']; ?>"/>	</h3>
 
 				<table class="tablaArticulos">
 
@@ -128,7 +137,7 @@ cerrarConexionBD($conexion);
 					<?php foreach ($filas as $fila) {
                     ?>
                     	<?php
-					if (isset($articulo) and ($articulo["idArticulo"] == $fila["idArticulo"])) { ?>
+					if (isset($articulo) and ($articulo["IDARTICULO"] == $fila["IDARTICULO"])) { ?>
 						<tr>
 							<td><h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila['NOMBRE']; ?>"/>	</h3> </td>
 							<td><h3><input id="TALLA" name="TALLA" type="text" value="<?php echo $fila['TALLA']; ?>"/>	</h3></td>
@@ -140,19 +149,26 @@ cerrarConexionBD($conexion);
 							</td>
 							<td><img src="images/carritoCompra.png" width="30px"/><input type="number" /><a href="cesta.php">Añadir a la cesta</a>
 						</td>
+						</tr>
 						<?php }	else { ?>
+							<h3><input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila['NOMBRE']; ?>"/>	</h3>
+							<h3><input id="TALLA" name="TALLA" type="hidden" value="<?php echo $fila['TALLA']; ?>"/>	</h3>
+							<h3><input id="PRECIO" name="PRECIO" type="hidden" value="<?php echo $fila['PRECIO']; ?>"/>	</h3>
+							<h3><input id="TAGS" name="TAGS" type="hidden" value="<?php echo $fila['TAGS']; ?>"/>	</h3>
 							<tr>
 							<td><?php echo $fila['NOMBRE'] ?> </td>
 							<td><?php echo $fila['TALLA'] ?></td>
 							<td><?php echo $fila['PRECIO'] ?></td>
 							<td><?php echo $fila['TAGS'] ?></td>
-							<td>	<button id="editar" name="editar" type="submit" class="editar_fila">
+							<td>	<button id="modificar" name="modificar" type="submit" class="editar_fila">
 									<img src="images/pencil_menuito.bmp" class="editar_fila" alt="Editar artículo">
 								</button>
 							</td>
 							<td><img src="images/carritoCompra.png" width="30px"/><input type="number" /><a href="cesta.php">Añadir a la cesta</a>
 						</td>
+						</tr>
 						<?php } ?>
+						
 						</div>
 
 	<?php

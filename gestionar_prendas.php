@@ -23,9 +23,10 @@ function editarPerfil($conexion, $perfil) {
   }
 }
 
-function accion_modificar_articulo($conexion, $nombre, $precio, $talla, $tags) {
+function accion_modificar_articulo($conexion, $idarticulo, $nombre, $precio, $talla, $tags) {
     try {
-      $stmt=$conexion->prepare('CALL ACCION_MODIFICAR_ARTICULO(:NOMBRE, :PRECIO, :TALLA, :TAGS)');
+      $stmt=$conexion->prepare('CALL ACCION_MODIFICAR_ARTICULO(:IDART, :NOMBRE, :PRECIO, :TALLA, :TAGS)');
+	  $stmt->bindParam(':IDART', $idarticulo);
       $stmt->bindParam(':NOMBRE', $nombre);
       $stmt->bindParam(':PRECIO', $precio);
       $stmt->bindParam(':TALLA', $talla);

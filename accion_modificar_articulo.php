@@ -9,7 +9,7 @@
 		require_once("gestionar_prendas.php");
 
 		$conexion = crearConexionBD();
-		$excepcion = accion_modificar_articulo($conexion, $articulo["idArticulo"], $articulo["NOMBRE"], $articulo["PRECIO"], $articulo["TALLA"], $articulo["TAGS"]);
+		$excepcion = accion_modificar_articulo($conexion, $articulo["IDARTICULO"], $articulo["NOMBRE"], $articulo["PRECIO"], $articulo["TALLA"], $articulo["TAGS"]);
 		cerrarConexionBD($conexion);
 
 		if ($excepcion<>"") {
