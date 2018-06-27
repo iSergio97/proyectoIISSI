@@ -26,16 +26,18 @@ include_once("cabecera.php");
 		<h2>Lo sentimos</h2>
 		<?php if ($destino<>"") { ?>
 		<p>Ocurrió un problema durante el procesado de los datos. Pulse <a href="<?php echo $destino ?>">aquí</a>
-       para volver a la página principal.</p>
+       para volver a la página anterior.</p>
 		<?php } else { ?>
 		<p>Ocurrió un problema para acceder a la base de datos. Vuelva a la página principal. </p>
 		<?php } ?>
-		<button><a href="indexLog.php">Página principal</a></button>
+    <form action="indexLog.php">
+       <input type="submit" value="Página principal" />
+   </form>
 	</div>
 
 	<div class='excepcion'>
-		<!-- <?php echo "Información relativa al problema: $excepcion;" ?> -->
-	</div>
+		<!-- <?php echo "Información relativa al problema: ".$excepcion ?> -->
+  	</div>
 
 </body>
 </html>

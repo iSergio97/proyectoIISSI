@@ -2,9 +2,10 @@
 	<div id="logotipo">
 		<ul class="topnav" id="myTopnav">
 		<center>
-		<img src="images/Logo2.png" width="175" height="175"alt="&#110 Sweet Modas 2018" />
+		<!-- <img src="images/Logo2.png" width="175" height="175" alt="&#110 Sweet Modas 2018" /> -->
+		<h1> Sweet Modas <h1>
 		</center>
 		</ul>
 	</div>
-	
+
 </header>

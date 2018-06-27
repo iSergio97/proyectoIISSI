@@ -3,7 +3,6 @@
 
 	if (isset($_SESSION["login"])) {
 		$user_name = $_SESSION["login"];
-		//unset($_SESSION["login"]);
 
 		require_once("gestionBD.php");
 		require_once("gestionUsuarios.php");
@@ -17,21 +16,22 @@
 			$usuarioModificado["email"] = $_REQUEST["email"];
 			$usuarioModificado["telefono"] = $_REQUEST["telefono"];
 			$usuarioModificado["direccion"] = $_REQUEST["direccion"];
-			$usuarioModificado["user_name"] = $_REQUEST["user_name"];
+			//$usuarioModificado["user_name"] = $_REQUEST["user_name"];
 			$usuarioModificado["pass"] = $_REQUEST["pass"];
 			$_SESSION["formulario"] = $usuarioModificado;
 		}
 		$conexion = crearConexionBD();
-		$oid_usuario=oidUsuario($conexion, $user_name);
+		//$oid_usuario=oidUsuario($conexion, $user_name);
 		$errores = validarDatosUsuario($usuarioModificado);
-		$excepcion = modificar_usuario($conexion, $usuarioModificado["dni"], $oid_usuario, $usuarioModificado["nombre"], $usuarioModificado["apellidos"],
+		$excepcion = modificar_usuario($conexion, $usuarioModificado["dni"], $usuarioModificado["nombre"], $usuarioModificado["apellidos"],
 									   $usuarioModificado["email"], $usuarioModificado["telefono"], $usuarioModificado["direccion"],
-									   $usuarioModificado["pass"], $usuarioModificado["fecNac"], $usuarioModificado["user_name"]);
+									   $usuarioModificado["pass"], $usuarioModificado["fecNac"], $user_name);
 
-		if (count($errores) > 0 && $excepcion<>"") {
+		if (count($errores) > 0) {
 			$_SESSION["errores"] = $errores;
-			$_SESSION["excepcion"] = $excepcion;
-			$_SESSION["destino"]="modificacion_usuario.php";
+			//$_SESSION["excepcion"] = $excepcion;
+			//$_SESSION["destino"]="modificacion_usuario.php";
+			echo "Se ha producido un error";
 			Header("Location: falloConexion.php");
 		} else {
 			Header("Location: perfil.php");

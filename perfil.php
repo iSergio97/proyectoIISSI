@@ -35,6 +35,14 @@ $fecha_nacimiento=fechaNacimientoMostrar($conexion, $user_name);
 <?php
 include_once("cabecera.php");
 ?>
+
+<div id="logout">
+	<form action="indexLog.php">
+		<input type="submit" value="Página principal" />
+		<br>
+	</div>
+
+<div>
     <strong>Nombre de usuario:</strong> <?php if(isset($user_name)) echo $user_name; else echo "La sesión no recupera el nombre del perfl";  ?>
 		<br>
 		<strong>Nombre:</strong> <?php if(isset($user_name)) echo $nombre; else echo "La sesión no recupera el nombre ";  ?>
@@ -51,9 +59,9 @@ include_once("cabecera.php");
 		<br>
 		<strong>Fecha de nacimiento:</strong> <?php if(isset($user_name)) echo $fecha_nacimiento; else echo "La sesión no recupera la fecha de nacimiento";  ?>
 		<br>
-		<p>Haga click <a href="modificacion_usuario.php">aquí</a>para modificar su perfil</p>
-		<div id="logout">
- <button><a href="indexLog.php">Página principal</a></button>
+		<p>Haga click <a href="modificacion_usuario.php">aquí </a>para modificar su perfil</p>
+</div>
+		 </form>
 
 </div>
   </body>

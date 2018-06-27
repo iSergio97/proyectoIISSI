@@ -68,7 +68,9 @@
 	<?php
 	include_once("cabecera.php");
 	?>
-<button><a href="indexLog.php">Página principal</a></button>
+	<form action="indexLog.php">
+		 <input type="submit" value="Página principal" />
+ </form>
 
 <main>
 

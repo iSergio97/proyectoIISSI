@@ -16,7 +16,6 @@ function nuevo_usuario($conexion, $usuario) {
 		$stmt -> bindParam(':telefono', $usuario["telefono"]);
 		$stmt -> bindParam(':direccion', $usuario["direccion"]);
 		$stmt -> bindParam(':pass', $usuario["pass"]);
-		$stmt -> bindParam(':fecNac', $fechaNacimiento);
 		$stmt -> execute();
 		return true;
 	} catch (PDOException $e) {
@@ -35,11 +34,11 @@ function consultarDatosUsuario($conexion, $user_name, $pass) {
 	return $stmt -> fetchColumn();
 }
 
-function modificar_usuario($conexion,$dni,$oid_usuario,$nombre,$apellidos,$email,$telefono,$direccion,$contraseña,$fecha_nacimiento,$user_name) {
+function modificar_usuario($conexion,$dni,$nombre,$apellidos,$email,$telefono,$direccion,$contraseña,$fecha_nacimiento,$user_name) {
 	try {
-		$stmt=$conexion->prepare('CALL MODIFICA_USUARIO(:DNI,:P_OID_USUARIO,:NOMBRE,:APELLIDOS,:EMAIL,:TELEFONO,:DIRECCION,:CONTRASEÑA,:FECHA_NAC,:USERNAME)');
-		$stmt->bindParam(':P_OID_USUARIO',$oid_usuario);
+		$stmt=$conexion->prepare('CALL MODIFICA_USUARIO(:DNI,:NOMBREUSUARIO, :NOMBRE,:APELLIDOS,:EMAIL,:TELEFONO,:DIRECCION,:CONTRASEÑA,:FECHA_NAC)');
 		$stmt->bindParam(':DNI',$dni);
+		$stmt->bindParam(':NOMBREUSUARIO', $user_name);
 		$stmt->bindParam(':NOMBRE',$nombre);
 		$stmt->bindParam(':APELLIDOS',$apellidos);
 		$stmt->bindParam(':EMAIL',$email);
@@ -47,7 +46,6 @@ function modificar_usuario($conexion,$dni,$oid_usuario,$nombre,$apellidos,$email
 		$stmt->bindParam(':DIRECCION',$direccion);
 		$stmt->bindParam(':CONTRASEÑA',$contraseña);
 		$stmt->bindParam(':FECHA_NAC',$fecha_nacimiento);
-		$stmt->bindParam(':USERNAME',$user_name);
 		$stmt->execute();
 		return "";
 	} catch(PDOException $e) {

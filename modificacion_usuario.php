@@ -126,14 +126,14 @@ include_once("cabecera.php");
 		<legend>
 		Datos de usuario
 		</legend>
-
+		<!--
 		<div>
 		<label id="nombreUsuario">
 		Nombre de usuario
 	</label for="user_name">
 	<input type="text" id="user_name" name="user_name" value="<?php echo $user_name; ?>" enabled="false">
 		</div>
-
+-->
 		<div>
 		<label>
 		Contraseña
@@ -157,6 +157,6 @@ include_once("cabecera.php");
 
 	<p> Pulse <a href="perfil.php">aquí </a> para acceder a la página de perfil</p>
 
-	
+
 	</body>
 </html>

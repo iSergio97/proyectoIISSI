@@ -32,13 +32,15 @@
 
 <?php
 	include_once("cabecera.php");
-	
+
 ?>
 
 <main>
 
-	<div id="logout">
- <button><a href="indexLog.php">Página principal</a></button>
+	<div id="pagPrin">
+		<form action="indexLog.php">
+	     <input type="submit" value="Página principal" />
+	 </form>
 </div>
 	<?php
 		foreach($filas as $fila) {

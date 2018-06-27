@@ -132,7 +132,7 @@ cerrarConexionBD($conexion);
 	</form>
 </article>
 	</main>
-	
+
   </body>
-  
+
 </html>

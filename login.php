@@ -26,7 +26,7 @@ if (isset($_POST['submit'])){
 <html lang="es" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		
+
 		<link rel="stylesheet" href="css/fondo.css">
 		<title></title>
 	</head>
@@ -41,12 +41,17 @@ if (isset($_POST['submit'])){
 					<input type="text" name="user_name" id="user_name" /> </div>
 					<div> <label for="pass"> Contraseña: </label>
 					<input type="password" name="pass" id="pass"></div>
-					<input type="submit" name="submit" value="submit" class="btn btn-info" />
+					<input type="submit" name="submit" value="Conectar" class="btn btn-info" />
+
 				</form>
+				<div id="logout">
+					<form action="registro_usuario.php">
+				 		<input type="submit" value="Haga click aquí para registrarse" />
+					</div>
 		</div>
 			<?php
 		include_once("pie.php");
 		?>
-		
+
 	</body>
 </html>

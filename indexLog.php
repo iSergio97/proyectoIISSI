@@ -61,7 +61,7 @@ cerrarConexionBD($conexion);
 		<link rel="stylesheet" href="css/fondo.css">
   </head>
   <body>
-  	
+
   	<?php
 	include_once("cabecera.php");
 ?>
@@ -162,14 +162,14 @@ cerrarConexionBD($conexion);
  </div>
 	</form>
 </article>
-  
+
 	</main>
-	
+
 
   </body>
 
-  
- 
- 	
-    	
+
+
+
+
 </html>
