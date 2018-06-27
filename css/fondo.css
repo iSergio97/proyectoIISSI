@@ -1,4 +1,27 @@
 
+div.error, div.excepcion {
+	color: red;	
+	border: 2px solid red;
+	padding: 10px;
+	margin: 10px;
+}
+
+  .strongpass {
+  	background-color: green
+  }
+
+  .middlepass {
+  	background-color: yellow
+  }
+
+  .weakpass {
+  	background-color: red
+  }
+
+  .nanpass {
+  	background-color: lightyellow
+  }
+
 ul{
   list-style: none;
   text-align: center;
@@ -41,7 +64,7 @@ ul.topnav li {float: left;}
 /* Estilo de los vinculos */
 ul.topnav li a {
     display: inline-block;
-    color: #f2f2f2;
+    color: #220A29;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -50,7 +73,7 @@ ul.topnav li a {
 }
 
 /* Cambiar el color del fondo al pasar el mouse por encima */
-ul.topnav li a:hover {background-color: #555;}
+ul.topnav li a:hover {background-color: #FFFFFF;}
 
 /* Esconder el boton del men� */
 ul.topnav li.icon {display: none;}
@@ -86,18 +109,3 @@ ul.topnav li.icon {display: none;}
     text-align: left;
   }
 
-  .strongpass {
-  	background-color: green
-  }
-
-  .middlepass {
-  	background-color: yellow
-  }
-
-  .weakpass {
-  	background-color: red
-  }
-
-  .nanpass {
-  	background-color: lightyellow
-  }
