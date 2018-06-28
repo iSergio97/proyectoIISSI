@@ -114,15 +114,15 @@ cerrarConexionBD($conexion);
 	<form method="post" action="controlador_articulos.php">
 		<div class="fila_articulo">
 			<div class="datos_articulo">
-				<h3><input id="IDARTICULO" name="IDARTICULO" type="hidden" value="<?php echo $fila['IDARTICULO']; ?>"/>	</h3>
-				<h3><input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila['NOMBRE']; ?>"/>	</h3>
-				<h3><input id="TALLA" name="TALLA" type="hidden" value="<?php echo $fila['TALLA']; ?>"/>	</h3>
-				<h3><input id="PRECIO" name="PRECIO" type="hidden" value="<?php echo $fila['PRECIO']; ?>"/>	</h3>
-				<h3><input id="TAGS" name="TAGS" type="hidden" value="<?php echo $fila['TAGS']; ?>"/>	</h3>
-				<h3><input id="TIPOARTICULO" name="TIPOARTICULO" type="hidden" value="<?php echo $fila['TIPOARTICULO']; ?>"/>	</h3>
-				<h3><input id="SECCION" name="SECCION" type="hidden" value="<?php echo $fila['SECCION']; ?>"/>	</h3>
-				<h3><input id="COLOR" name="COLOR" type="hidden" value="<?php echo $fila['COLOR']; ?>"/>	</h3>
-				<h3><input id="TEMPORADA" name="TEMPORADA" type="hidden" value="<?php echo $fila['TEMPORADA']; ?>"/>	</h3>
+				<input id="IDARTICULO" name="IDARTICULO" type="hidden" value="<?php echo $fila['IDARTICULO']; ?>"/>
+				<input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila['NOMBRE']; ?>"/>
+				<input id="TALLA" name="TALLA" type="hidden" value="<?php echo $fila['TALLA']; ?>"/>
+				<input id="PRECIO" name="PRECIO" type="hidden" value="<?php echo $fila['PRECIO']; ?>"/>
+				<input id="TAGS" name="TAGS" type="hidden" value="<?php echo $fila['TAGS']; ?>"/>
+				<input id="TIPOARTICULO" name="TIPOARTICULO" type="hidden" value="<?php echo $fila['TIPOARTICULO']; ?>"/>
+				<input id="SECCION" name="SECCION" type="hidden" value="<?php echo $fila['SECCION']; ?>"/>
+				<input id="COLOR" name="COLOR" type="hidden" value="<?php echo $fila['COLOR']; ?>"/>
+				<input id="TEMPORADA" name="TEMPORADA" type="hidden" value="<?php echo $fila['TEMPORADA']; ?>"/>
 
 				<table class="tablaArticulos">
 
@@ -136,45 +136,47 @@ cerrarConexionBD($conexion);
 						</tr>
 					<?php foreach ($filas as $fila) {
                     ?>
+                    <tr>
                     	<?php
 					if (isset($articulo) and ($articulo["IDARTICULO"] == $fila["IDARTICULO"])) { ?>
-						<tr>
 							<td><h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila['NOMBRE']; ?>"/>	</h3> </td>
 							<td><h3><input id="TALLA" name="TALLA" type="text" value="<?php echo $fila['TALLA']; ?>"/>	</h3></td>
 							<td><h3><input id="PRECIO" name="PRECIO" type="text" value="<?php echo $fila['PRECIO']; ?>"/>	</h3></td>
 							<td><h3><input id="TAGS" name="TAGS" type="text" value="<?php echo $fila['TAGS']; ?>"/>	</h3></td>
-							<td>	<button id="grabar" name="grabar" type="submit" class="editar_fila">
-									<img src="images/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación artículo">
-								</button>
-							</td>
-							<td><img src="images/carritoCompra.png" width="30px"/><input type="number" /><a href="cesta.php">Añadir a la cesta</a>
-						</td>
-						</tr>
 						<?php }	else { ?>
 							<h3><input id="NOMBRE" name="NOMBRE" type="hidden" value="<?php echo $fila['NOMBRE']; ?>"/>	</h3>
 							<h3><input id="TALLA" name="TALLA" type="hidden" value="<?php echo $fila['TALLA']; ?>"/>	</h3>
 							<h3><input id="PRECIO" name="PRECIO" type="hidden" value="<?php echo $fila['PRECIO']; ?>"/>	</h3>
 							<h3><input id="TAGS" name="TAGS" type="hidden" value="<?php echo $fila['TAGS']; ?>"/>	</h3>
-							<tr>
-							<td><?php echo $fila['NOMBRE'] ?> </td>
-							<td><?php echo $fila['TALLA'] ?></td>
-							<td><?php echo $fila['PRECIO'] ?></td>
-							<td><?php echo $fila['TAGS'] ?></td>
+							<td><div class="nombre"><?php echo $fila['NOMBRE'] ?> </div></td>
+							<td><div class="talla"><?php echo $fila['TALLA'] ?></div></td>
+							<td><div class="precio"><?php echo $fila['PRECIO'] ?></div></td>
+							<td><div class="tags"><?php echo $fila['TAGS'] ?></div></td>
+						<?php } ?>
+						<div id="botones_fila">
+							<?php
+							if (isset($articulo) and ($articulo["IDARTICULO"] == $fila["IDARTICULO"])) { ?>
+								<td>	<button id="grabar" name="grabar" type="submit" class="editar_fila">
+									<img src="images/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación artículo">
+								</button>
+							</td>
+						<?php } else{ ?>
 							<td>	<button id="modificar" name="modificar" type="submit" class="editar_fila">
 									<img src="images/pencil_menuito.bmp" class="editar_fila" alt="Editar artículo">
 								</button>
 							</td>
-							<td><img src="images/carritoCompra.png" width="30px"/><input type="number" /><a href="cesta.php">Añadir a la cesta</a>
-						</td>
-						</tr>
 						<?php } ?>
-						
+						<td><img src="images/carritoCompra.png" width="30px"/><input type="number" /><a href="cesta.php">Añadir a la cesta</a>
+						</td>
 						</div>
+						</tr>
+						
 
 	<?php
  }
 	 ?>
-
+	 </table>
+</div>
  </div>
 	</form>
 </article>
